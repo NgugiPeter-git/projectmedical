@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MWIKI Modern Health Centre - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="images/logo.png" alt="MWIKI Logo" class="logo-img">
+                <h2 class="logo-text">mwiki modern medical centre</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="services.html" class="nav-link">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="tel:+254748662082" class="nav-link cta-button">Book Appointment</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section with H1 -->
+        <section class="hero">
+            <h1 class="glass-heading">Comprehensive Healthcare Solutions</h1>
+            <p class="hero-subtitle">Your Trusted Medical Partner for Quality Healthcare</p>
+            <a href="contact.html" class="appointment-btn">Schedule Your Appointment Now</a>
+        </section>
+
+        <!-- Slideshow Section -->
+        <section class="slideshow-section">
+            <div class="slideshow-container">
+                <div class="slide fade">
+                    <img src="images/w1.jpeg.jpeg" alt="MWIKI Modern Health Centre 1">
+                    <div class="slide-caption">Advanced Medical Services</div>
+                </div>
+                <div class="slide fade">
+                    <img src="images/w2.jpeg.jpeg" alt="MWIKI Modern Health Centre 2">
+                    <div class="slide-caption">Expert Healthcare Team</div>
+                </div>
+                <div class="slide fade">
+                    <img src="images/w3.jpeg.png" alt="MWIKI Modern Health Centre 3">
+                    <div class="slide-caption">Patient-Centered Care</div>
+                </div>
+
+                <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+                <a class="next" onclick="changeSlide(1)">&#10095;</a>
+            </div>
+            <div class="slide-dots">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </section>
+
+        <!-- Sticky Sidebar with FAQ and Reviews -->
+        <div class="sticky-container">
+            <!-- FAQ Section -->
+            <section class="sticky-section faq-section" id="faq">
+                <h2 class="glass-heading-h2">Frequently Asked Questions</h2>
+                <div class="faq-content">
+                    <div class="faq-item">
+                        <button class="faq-toggle">
+                            What are your operating hours?
+                            <span class="toggle-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We are open Monday to Friday from 8:00 AM to 6:00 PM, and Saturday from 9:00 AM to 3:00 PM. Sunday by appointment only.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-toggle">
+                            Do I need an appointment?
+                            <span class="toggle-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>While appointments are recommended, we also accept walk-in patients. However, appointments ensure minimal waiting time.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-toggle">
+                            What insurance do you accept?
+                            <span class="toggle-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>We accept most major insurance providers. Please contact us for specific details about your insurance plan.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-toggle">
+                            How do I book an appointment?
+                            <span class="toggle-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>You can book an appointment through our website, call us at +254 748 662082, or send an email to mwikimodern@gmail.com.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reviews Section -->
+            <section class="sticky-section reviews-section" id="reviews">
+                <h2 class="glass-heading-h2">Patient Reviews</h2>
+                <div class="reviews-content">
+                    <div class="review-item">
+                        <div class="review-header">
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="review-author">John Kariuki</span>
+                        </div>
+                        <p class="review-text">"Excellent service! The doctors are professional and the staff is very friendly. I felt well taken care of."</p>
+                    </div>
+
+                    <div class="review-item">
+                        <div class="review-header">
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="review-author">Mary Wanjiru</span>
+                        </div>
+                        <p class="review-text">"Clean facilities and fast service. Highly recommend MWIKI Modern Health Centre to anyone looking for quality healthcare."</p>
+                    </div>
+
+                    <div class="review-item">
+                        <div class="review-header">
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="review-author">David Ochieng</span>
+                        </div>
+                        <p class="review-text">"Great experience from start to finish. The medical team is knowledgeable and provides excellent care."</p>
+                    </div>
+
+                    <div class="review-item">
+                        <div class="review-header">
+                            <div class="review-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="review-author">Susan Kamau</span>
+                        </div>
+                        <p class="review-text">"Professional staff and modern equipment. I always feel confident visiting MWIKI Modern Health Centre."</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- WhatsApp CTA Button -->
+        <a href="https://wa.me/254748662082?text=Hello%20MWIKI%20Modern%20Health%20Centre%2C%20I%20would%20like%20to%20inquire%20about%20your%20services" target="_blank" class="whatsapp-btn" title="Chat with us on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+
+        <!-- Quick Info Section -->
+        <section class="quick-info">
+            <div class="info-card">
+                <i class="fas fa-phone"></i>
+                <h3>Call Us</h3>
+                <p><a href="tel:+254748662082">+254 748 662082</a></p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-envelope"></i>
+                <h3>Email Us</h3>
+                <p><a href="mailto:mwikimodern@gmail.com">mwikimodern@gmail.com</a></p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Visit Us</h3>
+                <p>6 Red Soil St, Nairobi</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-clock"></i>
+                <h3>Hours</h3>
+                <p>Mon-Fri: 8AM - 6PM<br>Sat: 9AM - 3PM</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>MWIKI Modern Health Centre</h4>
+                <p>Providing quality healthcare services to the community.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p>Email: <a href="mailto:mwikimodern@gmail.com">mwikimodern@gmail.com</a></p>
+                <p>Phone: <a href="tel:+254748662082">+254 748 662082</a></p>
+                <p>Address: 6 Red Soil St, Nairobi</p>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0ELD2Qo3aEy22pJXHvu7yXRk7jHAVJNUQgduqdjvtWEiBJrbbPbLj1mifrmDajjH2l%26id%3D100057780334661&show_text=true&width=500" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+                    <a href="https://www.instagram.com/explore/locations/1847337145300613/mwiki-modern-maternity-hospital/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MWIKI Modern Health Centre. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
