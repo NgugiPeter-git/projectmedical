@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore our specialized departments at MWIKI Modern Medical Centre including Outpatient, MCH & Family Planning, Medical Surgical, Operating Theatre, and Maternity services.">
+    <meta name="keywords" content="medical departments, outpatient, MCH, family planning, surgical, operating theatre, maternity, Nairobi healthcare">
+    <title>Departments - MWIKI Modern Medical Centre</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <style>
+        body {
+            background-color: azure;
+        }
+        .departments-section {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .departments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .department-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .department-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        .department-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        .department-card h3 {
+            color: #0078d4;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        .department-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        .sticky-scroll {
+            position: sticky;
+            top: 100px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        @media (max-width: 768px) {
+            .departments-grid {
+                grid-template-columns: 1fr;
+            }
+            .department-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="images/logo.png" alt="MWIKI Logo" class="logo-img">
+                <h2 class="logo-text">MWIKI MODERN MEDICAL CENTRE</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="services.html" class="nav-link">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="departments.html" class="nav-link active">Departments</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="tel:+254748662082" class="nav-link cta-button">Book Appointment</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1 class="glass-heading">Our Departments</h1>
+        <p>Specialized Medical Departments for Comprehensive Healthcare</p>
+    </section>
+
+    <!-- Sticky Scroll Section -->
+    <div class="sticky-scroll">
+        <h2 style="color: #0078d4; text-align: center;">Explore Our Specialized Departments</h2>
+        <p style="text-align: center; color: #666;">Scroll down to learn more about each department</p>
+    </div>
+
+    <!-- Main Content -->
+    <main class="departments-section">
+        <div class="departments-grid">
+            <div class="department-card">
+                <img src="images/1.png" alt="Outpatient Department">
+                <h3>OUTPATIENT</h3>
+                <p>Comprehensive outpatient services for diagnosis, treatment, and follow-up care. Our experienced medical team provides personalized healthcare solutions.</p>
+            </div>
+
+            <div class="department-card">
+                <img src="images/2.png" alt="MCH and Family Planning Department">
+                <h3>MCH AND FAMILY PLANNING</h3>
+                <p>Maternal and Child Health services combined with family planning counseling. We support families through all stages of life with expert care.</p>
+            </div>
+
+            <div class="department-card">
+                <img src="images/3.png" alt="Medical Surgical Department">
+                <h3>MEDICAL SURGICAL</h3>
+                <p>Advanced medical and surgical interventions for various conditions. Our surgical team uses state-of-the-art technology for optimal patient outcomes.</p>
+            </div>
+
+            <div class="department-card">
+                <h3>OPERATING THEATRE</h3>
+                <p>Modern operating facilities equipped with the latest surgical technology. Our skilled surgeons perform a wide range of procedures with precision and care.</p>
+            </div>
+
+            <div class="department-card">
+                <h3>MATERNITY</h3>
+                <p>Dedicated maternity services for expectant mothers and newborns. We provide comprehensive prenatal, delivery, and postnatal care in a supportive environment.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-brand">
+                    <img src="images/logo.png" alt="MWIKI Logo" class="footer-logo">
+                    <h4>MWIKI MODERN MEDICAL CENTRE</h4>
+                </div>
+                <p>Your trusted partner in healthcare excellence.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="departments.html">Departments</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
+                <p><i class="fas fa-phone"></i> +254 748 662 082</p>
+                <p><i class="fas fa-envelope"></i> info@mwikimedical.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 MWIKI Modern Medical Centre. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
