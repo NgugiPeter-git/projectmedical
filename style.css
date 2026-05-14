@@ -40,8 +40,10 @@ a {
     margin: 0 auto;
     padding: 0 2rem;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
 }
 
 .nav-logo {
@@ -52,6 +54,7 @@ a {
     padding: 0.35rem 0.6rem;
     border-radius: 14px;
     margin-right: auto;
+    max-width: 100%;
     animation: float 3s ease-in-out infinite;
 }
 
@@ -294,15 +297,16 @@ main {
 
 .hero {
     text-align: center;
-    padding: 4rem 2rem;
-    margin: 2rem auto;
+    width: 100%;
     max-width: 1100px;
+    padding: 3rem 1.5rem;
+    margin: 2rem auto;
     background: linear-gradient(135deg, #0078d4 0%, #00a8e8 100%);
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0, 120, 212, 0.3);
     border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.5s ease;
-    transform: translateY(0) scale(1.1);
+    transform: translateY(0) scale(1.05);
     animation: zoomOut 2s ease-out forwards;
 }
 
@@ -355,12 +359,39 @@ main {
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(0, 120, 212, 0.3);
     margin-top: 1rem;
+    white-space: nowrap;
 }
 
 .appointment-btn:hover, .book-btn:hover, .method-btn:hover, .submit-btn:hover {
     background: linear-gradient(135deg, #005a9e 0%, #0071c5 100%);
     box-shadow: 0 6px 20px rgba(0, 120, 212, 0.5);
     transform: translateY(-2px);
+}
+
+.pulse-box,
+.pulse-btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.9rem 2rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: pulse 2s infinite;
+    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7);
+}
+
+.pulse-box:hover,
+.pulse-btn:hover {
+    transform: scale(1.02);
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7); }
+    50% { transform: scale(1); box-shadow: 0 0 0 18px rgba(0, 123, 255, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 123, 255, 0); }
 }
 
 /* ================================
@@ -1286,17 +1317,40 @@ main {
    RESPONSIVE DESIGN
    ================================ */
 @media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
     .nav-menu {
         gap: 1rem;
+        width: 100%;
+        justify-content: center;
+        padding-top: 1rem;
+    }
+
+    .nav-item {
+        width: 100%;
     }
 
     .nav-link {
-        padding: 0.3rem 0.7rem;
-        font-size: 0.9rem;
+        padding: 0.75rem 0.9rem;
+        font-size: 0.95rem;
+        width: 100%;
+        display: inline-flex;
+        justify-content: center;
+    }
+
+    .nav-link.cta-button {
+        width: auto;
+    }
+
+    .hero {
+        padding: 2.5rem 1.25rem;
     }
 
     .glass-heading {
-        font-size: 2rem;
+        font-size: 2.2rem;
         padding: 1rem 1.5rem;
     }
 
@@ -1304,13 +1358,24 @@ main {
         font-size: 1.5rem;
     }
 
+    .hero .appointment-btn,
+    .book-btn,
+    .method-btn,
+    .submit-btn {
+        width: 100%;
+        max-width: 340px;
+        padding: 1rem 1.5rem;
+    }
+
     .slide img {
-        height: 400px;
+        width: 100%;
+        height: auto;
+        max-height: 450px;
     }
 
     .slide-caption {
-        font-size: 1.2rem;
-        padding: 0.7rem 1.5rem;
+        font-size: 1.1rem;
+        padding: 0.7rem 1rem;
     }
 
     .services-grid,
@@ -1332,6 +1397,10 @@ main {
         padding: 1rem;
     }
 
+    .sticky-container {
+        gap: 1.5rem;
+    }
+
     .prev, .next {
         width: 40px;
         height: 40px;
@@ -1344,6 +1413,15 @@ main {
 @media (max-width: 600px) {
     .hamburger {
         display: flex;
+    }
+
+    .nav-container {
+        align-items: stretch;
+    }
+
+    .nav-logo {
+        width: 100%;
+        justify-content: center;
     }
 
     .nav-menu {
@@ -1370,6 +1448,19 @@ main {
     .glass-heading {
         font-size: 1.8rem;
         padding: 0.8rem 1rem;
+    }
+
+    .hero {
+        padding: 2rem 1rem;
+    }
+
+    .hero .appointment-btn,
+    .book-btn,
+    .method-btn,
+    .submit-btn {
+        width: 100%;
+        max-width: 100%;
+        padding: 0.85rem 1.25rem;
     }
 
     .glass-heading-h2 {
