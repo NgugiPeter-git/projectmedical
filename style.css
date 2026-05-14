@@ -51,10 +51,12 @@ a {
     background-color: rgba(255, 255, 255, 0.08);
     padding: 0.35rem 0.6rem;
     border-radius: 14px;
+    margin-right: auto;
+    animation: float 3s ease-in-out infinite;
 }
 
 .logo-img {
-    height: 42px;
+    height: 35px;
     width: auto;
     filter: brightness(0.75) contrast(1.05);
     transition: filter 0.3s ease;
@@ -66,8 +68,9 @@ a {
 
 .logo-text {
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     font-weight: bold;
+    letter-spacing: 0.5px;
 }
 
 .footer-brand {
@@ -78,15 +81,17 @@ a {
 }
 
 .footer-logo {
-    height: 42px;
+    height: 35px;
     width: auto;
     filter: brightness(0.85) contrast(1.1);
+    animation: float 3s ease-in-out infinite;
 }
 
 .footer-brand h4 {
     margin: 0;
     color: #fff;
-    font-size: 1.3rem;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
 }
 
 .nav-menu {
@@ -1262,6 +1267,19 @@ main {
     border-top: 1px solid #444;
     padding-top: 1rem;
     color: #999;
+}
+
+/* ================================
+   FLOATING ANIMATION
+   ================================ */
+.floating {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
 }
 
 /* ================================
