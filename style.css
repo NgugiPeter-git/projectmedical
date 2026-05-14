@@ -15,7 +15,11 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
-    background-color: #f4f7fb;
+    background-color: #f0f8ff; /* Fallback color */
+    background-image: 
+        radial-gradient(at 0% 0%, hsla(210,100%,93%,1) 0, transparent 50%), 
+        radial-gradient(at 50% 0%, hsla(205,100%,95%,1) 0, transparent 50%), 
+        radial-gradient(at 100% 0%, hsla(200,100%,90%,1) 0, transparent 50%);
 }
 
 a {
@@ -663,7 +667,10 @@ main {
 }
 
 .elementor-hero {
-    background: linear-gradient(135deg, #0078d4 0%, #1084d7 100%);
+    background-image: url('images/7.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: white;
     text-align: center;
     padding: 6rem 2rem;
