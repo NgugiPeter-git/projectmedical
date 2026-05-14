@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MWIKI Modern Health Centre - Home</title>
+    <meta name="description" content="MWIKI Modern Medical Centre in Nairobi offers outpatient care, maternity, surgery, laboratory services, and appointments. Call +254 748 662082.">
+    <meta name="keywords" content="MWIKI Modern Medical Centre, Nairobi hospital, maternity Nairobi, outpatient clinic Kenya, medical centre Red Soil Street">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <title>MWIKI Modern Medical Centre | Healthcare in Nairobi, Kenya</title>
+    <meta property="og:title" content="MWIKI Modern Medical Centre | Healthcare in Nairobi">
+    <meta property="og:description" content="Trusted medical care in Nairobi — appointments, maternity, surgery, and outpatient services.">
+    <meta property="og:type" content="website">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -12,7 +19,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="images/logo.png" alt="MWIKI Logo" class="logo-img">
+                <img src="images/favicon.png" alt="MWIKI Modern Medical Centre" class="logo-img site-logo-float" width="40" height="40">
                 <h2 class="logo-text">mwiki modern medical centre</h2>
             </div>
             <ul class="nav-menu">
@@ -21,6 +28,9 @@
                 </li>
                 <li class="nav-item">
                     <a href="services.html" class="nav-link">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="departments.html" class="nav-link">Departments</a>
                 </li>
                 <li class="nav-item">
                     <a href="about.html" class="nav-link">About</a>
@@ -44,7 +54,7 @@
     <main>
         <!-- Hero Section with H1 -->
         <section class="hero">
-            <h1 class="glass-heading">Comprehensive Healthcare Solutions</h1>
+            <h1 class="glass-heading">MWIKI MODERN MEDICAL CENTRE</h1>
             <p class="hero-subtitle">Your Trusted Medical Partner for Quality Healthcare</p>
             <a href="contact.html" class="appointment-btn">Schedule Your Appointment Now</a>
         </section>
@@ -53,16 +63,16 @@
         <section class="slideshow-section">
             <div class="slideshow-container">
                 <div class="slide fade">
-                    <img src="images/w1.jpeg.jpeg" alt="MWIKI Modern Health Centre 1">
-                    <div class="slide-caption">Advanced Medical Services</div>
+                    <img src="images/1.png" alt="MWIKI Modern Medical Centre — gallery 1">
+                    <div class="slide-caption">1</div>
                 </div>
                 <div class="slide fade">
-                    <img src="images/w2.jpeg.jpeg" alt="MWIKI Modern Health Centre 2">
-                    <div class="slide-caption">Expert Healthcare Team</div>
+                    <img src="images/2.png" alt="MWIKI Modern Medical Centre — gallery 2">
+                    <div class="slide-caption">2</div>
                 </div>
                 <div class="slide fade">
-                    <img src="images/w3.jpeg.png" alt="MWIKI Modern Health Centre 3">
-                    <div class="slide-caption">Patient-Centered Care</div>
+                    <img src="images/3.png" alt="MWIKI Modern Medical Centre — gallery 3">
+                    <div class="slide-caption">3</div>
                 </div>
 
                 <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
@@ -219,8 +229,11 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-section">
-                <h4>MWIKI Modern Health Centre</h4>
+            <div class="footer-section footer-brand">
+                <div class="footer-brand-inner">
+                    <img src="images/favicon.png" alt="MWIKI Modern Medical Centre" class="footer-logo site-logo-float" width="48" height="48">
+                    <h4>MWIKI Modern Medical Centre</h4>
+                </div>
                 <p>Providing quality healthcare services to the community.</p>
             </div>
             <div class="footer-section">
@@ -228,6 +241,7 @@
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="services.html">Services</a></li>
+                    <li><a href="departments.html">Departments</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
@@ -247,10 +261,27 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 MWIKI Modern Health Centre. All rights reserved.</p>
+            <p>&copy; 2026 MWIKI Modern Medical Centre. All rights reserved.</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MedicalClinic",
+        "name": "MWIKI Modern Medical Centre",
+        "image": "images/favicon.png",
+        "telephone": "+254748662082",
+        "email": "mwikimodern@gmail.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "6 Red Soil St",
+            "addressLocality": "Nairobi",
+            "addressCountry": "KE"
+        },
+        "medicalSpecialty": ["GeneralPractice", "Obstetric", "Surgery"]
+    }
+    </script>
 </body>
 </html>

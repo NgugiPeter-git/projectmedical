@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore our specialized departments at MWIKI Modern Medical Centre including Outpatient, MCH & Family Planning, Medical Surgical, Operating Theatre, and Maternity services.">
-    <meta name="keywords" content="medical departments, outpatient, MCH, family planning, surgical, operating theatre, maternity, Nairobi healthcare">
-    <title>Departments - MWIKI Modern Medical Centre</title>
+    <meta name="description" content="Clinical departments at MWIKI Modern Medical Centre in Nairobi — outpatient, maternity, surgery, theatre, and family planning.">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <title>Departments | MWIKI Modern Medical Centre — Nairobi</title>
+    <meta property="og:title" content="Departments | MWIKI Modern Medical Centre">
+    <meta property="og:description" content="Explore our medical and surgical departments, maternity, outpatient care, and operating theatre.">
+    <meta property="og:type" content="website">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/png" href="images/favicon.png">
     <style>
         body {
             background-color: azure;
@@ -35,13 +38,6 @@
         .department-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-        .department-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 1rem;
         }
         .department-card h3 {
             color: #0078d4;
@@ -77,24 +73,24 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="images/favicon.png" alt="MWIKI Logo" class="logo-img">
-                <h2 class="logo-text">MWIKI MODERN MEDICAL CENTRE</h2>
+                <img src="images/favicon.png" alt="MWIKI Modern Medical Centre" class="logo-img site-logo-float" width="40" height="40">
+                <h2 class="logo-text">mwiki modern medical centre</h2>
             </div>
             <ul class="nav-menu">
                 <li class="nav-item">
-                    <a href="./" class="nav-link">Home</a>
+                    <a href="index.html" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="services/" class="nav-link">Services</a>
+                    <a href="services.html" class="nav-link">Services</a>
                 </li>
                 <li class="nav-item">
-                    <a href="departments/" class="nav-link active">Departments</a>
+                    <a href="departments.html" class="nav-link active">Departments</a>
                 </li>
                 <li class="nav-item">
-                    <a href="about/" class="nav-link">About Us</a>
+                    <a href="about.html" class="nav-link">About</a>
                 </li>
                 <li class="nav-item">
-                    <a href="contact/" class="nav-link">Contact Us</a>
+                    <a href="contact.html" class="nav-link">Contact Us</a>
                 </li>
                 <li class="nav-item">
                     <a href="tel:+254748662082" class="nav-link cta-button">Book Appointment</a>
@@ -124,19 +120,16 @@
     <main class="departments-section">
         <div class="departments-grid">
             <div class="department-card">
-                <img src="images/1.png" alt="Outpatient Department">
                 <h3>OUTPATIENT</h3>
                 <p>Comprehensive outpatient services for diagnosis, treatment, and follow-up care. Our experienced medical team provides personalized healthcare solutions.</p>
             </div>
 
             <div class="department-card">
-                <img src="images/2.png" alt="MCH and Family Planning Department">
                 <h3>MCH AND FAMILY PLANNING</h3>
                 <p>Maternal and Child Health services combined with family planning counseling. We support families through all stages of life with expert care.</p>
             </div>
 
             <div class="department-card">
-                <img src="images/3.png" alt="Medical Surgical Department">
                 <h3>MEDICAL SURGICAL</h3>
                 <p>Advanced medical and surgical interventions for various conditions. Our surgical team uses state-of-the-art technology for optimal patient outcomes.</p>
             </div>
@@ -156,44 +149,51 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-section">
-                <div class="footer-brand">
-                    <img src="images/favicon.png" alt="MWIKI Logo" class="footer-logo">
-                    <h4>MWIKI MODERN MEDICAL CENTRE</h4>
+            <div class="footer-section footer-brand">
+                <div class="footer-brand-inner">
+                    <img src="images/favicon.png" alt="MWIKI Modern Medical Centre" class="footer-logo site-logo-float" width="48" height="48">
+                    <h4>MWIKI Modern Medical Centre</h4>
                 </div>
                 <p>Your trusted partner in healthcare excellence.</p>
-                <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                </div>
             </div>
             <div class="footer-section">
                 <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="./">Home</a></li>
-                    <li><a href="services/">Services</a></li>
-                    <li><a href="departments/">Departments</a></li>
-                    <li><a href="about/">About Us</a></li>
-                    <li><a href="contact/">Contact Us</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="departments.html">Departments</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h4>Contact Info</h4>
-                <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
-                <p><i class="fas fa-phone"></i> +254 748 662 082</p>
-                <p><i class="fas fa-envelope"></i> info@mwikimedical.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> 6 Red Soil St, Nairobi</p>
+                <p><i class="fas fa-phone"></i> +254 748 662082</p>
+                <p><i class="fas fa-envelope"></i> mwikimodern@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fpermalink.php%3Fstory_fbid%3Dpfbid0ELD2Qo3aEy22pJXHvu7yXRk7jHAVJNUQgduqdjvtWEiBJrbbPbLj1mifrmDajjH2l%26id%3D100057780334661&show_text=true&width=500" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i> Facebook</a>
+                    <a href="https://www.instagram.com/explore/locations/1847337145300613/mwiki-modern-maternity-hospital/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> Instagram</a>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 MWIKI Modern Medical Centre. All rights reserved.</p>
+            <p>&copy; 2026 MWIKI Modern Medical Centre. All rights reserved.</p>
         </div>
     </footer>
 
     <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
+
+
 
 
 
