@@ -1007,7 +1007,7 @@ main {
    CONTACT SECTION
    ================================ */
 .contact-info-section {
-    background-image: url('images/background-image.png.png');
+    background-image: url('/images/background-image.png.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -1408,4 +1408,36 @@ main {
     .footer-content {
         gap: 1.5rem;
     }
+}
+/* Full-screen overlay */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff; /* Matches your white background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Ensures it sits on top of everything */
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* The bouncing effect */
+.bouncing-logo {
+    width: 80px;
+    height: 80px;
+    animation: bounce 0.6s infinite alternate ease-in-out;
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+
+/* Class to hide it once loaded */
+.preloader-hidden {
+    opacity: 0;
+    visibility: hidden;
 }
