@@ -190,12 +190,6 @@ navLinks.forEach(link => {
     }
 });
 });
-window.addEventListener("load", () => {
-    const preloader = document.getElementById("preloader");
-    if (preloader) {
-        preloader.classList.add("preloader-hidden");
-    }
-});
 
 // ================================
 // HELPER FUNCTION
@@ -292,4 +286,10 @@ styleSheet.innerText = `
     50% { transform: translateY(-40px) translateX(20px); }
     100% { transform: translateY(20px) translateX(-20px); }
 }`;
+window.addEventListener("load", () => {
+    const preloader = document.getElementById("preloader");
+    if (preloader) {
+        preloader.classList.add("preloader-hidden");
+    }
+});
 document.head.appendChild(styleSheet);
