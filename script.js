@@ -178,13 +178,17 @@ window.addEventListener('scroll', function() {
         link.classList.remove('active');
     });
 
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    navLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        if (href === currentPage || (currentPage === '' && href === 'index.html')) {
-            link.classList.add('active');
-        }
-    });
+    // Get the clean URL path (e.g., "/" or "/departments/")
+const currentPage = window.location.pathname;
+
+navLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    
+    // Check if the current path matches the link destination exactly
+    if (currentPage === href || (currentPage === '/' && href === '/')) {
+        link.classList.add('active');
+    }
+});
 });
 
 // ================================
@@ -195,8 +199,8 @@ function scrollToContact() {
     if (contactSection) {
         contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     } else {
-        // Fallback to contact page
-        window.location.href = 'contact.html';
+        // Fallback to the clean contact folder path
+        window.location.href = '/contact/';
     }
 }
 
@@ -239,4 +243,47 @@ style.textContent = `
         }
     }
 `;
-document.head.appendChild(style);
+document.addEventListener("DOMContentLoaded", () => {
+    // Create a container for our background effects
+    const bgContainer = document.createElement("div");
+    bgContainer.style.position = "fixed";
+    bgContainer.style.top = "0";
+    bgContainer.style.left = "0";
+    bgContainer.style.width = "100vw";
+    bgContainer.style.height = "100vh";
+    bgContainer.style.zIndex = "-1"; /* Sit securely behind text/buttons */
+    bgContainer.style.pointerEvents = "none"; /* Don't block clicks */
+    bgContainer.style.overflow = "hidden";
+    document.body.appendChild(bgContainer);
+
+    // Generate 10 subtle floating azure spheres
+    for (let i = 0; i < 10; i++) {
+        const floatingSphere = document.createElement("div");
+        
+        // Randomize sizes and placements
+        const size = Math.random() * 150 + 50; 
+        floatingSphere.style.width = `${size}px`;
+        floatingSphere.style.height = `${size}px`;
+        floatingSphere.style.background = "rgba(0, 123, 255, 0.04)"; /* Very soft blue */
+        floatingSphere.style.borderRadius = "50%";
+        floatingSphere.style.position = "absolute";
+        floatingSphere.style.top = `${Math.random() * 100}vh`;
+        floatingSphere.style.left = `${Math.random() * 100}vw`;
+        floatingSphere.style.filter = "blur(20px)";
+        
+        // Apply smooth CSS floating movement
+        floatingSphere.style.animation = `floatAround ${Math.random() * 20 + 20}s infinite alternate ease-in-out`;
+        
+        bgContainer.appendChild(floatingSphere);
+    }
+});
+
+// Inject the floating animation rules directly into the document
+const styleSheet = document.createElement("style");
+styleSheet.innerText = `
+@keyframes floatAround {
+    0% { transform: translateY(0px) translateX(0px); }
+    50% { transform: translateY(-40px) translateX(20px); }
+    100% { transform: translateY(20px) translateX(-20px); }
+}`;
+document.head.appendChild(styleSheet);

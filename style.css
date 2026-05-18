@@ -12,10 +12,31 @@ html {
 }
 
 body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
-    background-color: #f4f7fb;
+    
+    /* Premium Azure Blue Gradient Mix */
+    background: linear-gradient(-45deg, #f0f8ff, #e6f2ff, #cce6ff, #eef7ff);
+    background-size: 400% 400%;
+    
+    /* Triggers the "live" shifting animation */
+    animation: azureLiveBg 15s ease infinite;
+}
+
+@keyframes azureLiveBg {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 a {
