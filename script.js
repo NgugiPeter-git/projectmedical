@@ -292,4 +292,22 @@ window.addEventListener("load", () => {
         preloader.classList.add("preloader-hidden");
     }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const cookieBanner = document.getElementById("cookie-banner");
+    const acceptBtn = document.getElementById("accept-cookies");
+
+    // Check if the user already consented
+    if (!localStorage.getItem("cookieConsent")) {
+        // Trigger presentation delay after 1.5 seconds
+        setTimeout(() => {
+            cookieBanner.classList.add("show");
+        }, 1500);
+    }
+
+    acceptBtn.addEventListener("click", () => {
+        localStorage.setItem("cookieConsent", "true");
+        cookieBanner.classList.remove("show");
+    });
+});
 document.head.appendChild(styleSheet);
