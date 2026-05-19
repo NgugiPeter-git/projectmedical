@@ -1215,7 +1215,7 @@ main {
 }
 
 .cta-section .appointment-btn {
-    background: #ff6b6b;
+    background: #d60101e7;
     box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
 }
 
@@ -1402,7 +1402,7 @@ main {
 
     .appointment-btn, .book-btn, .method-btn, .submit-btn {
         padding: 0.7rem 1.5rem;
-        font-size: 0.95rem;
+        font-size: 0.75rem;
     }
 
     .footer-content {
@@ -1442,3 +1442,4 @@ main {
     opacity: 0;
     visibility: hidden;
 }
+
