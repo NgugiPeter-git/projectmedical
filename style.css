@@ -1527,3 +1527,170 @@ main {
     transform: scale(1.1);     /* Slight pop-out effect when hovered */
     background-color: #128c7e; /* Darker green */
 }
+
+/* ==========================================
+   TOP BAR MASTER STYLES
+   ========================================== */
+.top-bar {
+    background-color: #f8f9fa; /* Elegant light gray background strip */
+    border-bottom: 1px solid #eaeaea;
+    padding: 8px 0;
+    font-size: 13px; /* Keeps text slim and readable */
+    font-weight: 500;
+    font-family: sans-serif;
+}
+
+.top-bar-container {
+    max-width: 1200px; /* Aligns perfectly with your main navigation container limits */
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between; /* Pushes contacts left, socials right */
+    align-items: center;
+}
+
+.top-bar-left {
+    display: flex;
+    gap: 25px; /* Clean horizontal spacing between text pieces */
+}
+
+.top-bar-item {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Spaces out FontAwesome icons from the actual text strings */
+    color: #555555;
+}
+
+.top-bar-item i {
+    color: #007bff; /* Medical theme brand blue for icons */
+    font-size: 14px;
+}
+
+.top-bar-item a {
+    color: #555555;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.top-bar-item a:hover {
+    color: #007bff; /* Turns blue when user hovers mouse over link elements */
+}
+
+.top-bar-right {
+    display: flex;
+    gap: 10px;
+}
+
+.top-social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background-color: #eeeeee;
+    color: #555555;
+    border-radius: 50%; /* Creates uniform circular backdrops */
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.top-social-icon i {
+    font-size: 12px;
+}
+
+.top-social-icon:hover {
+    background-color: #007bff;
+    color: #ffffff;
+    transform: translateY(-2px); /* Soft micro-movement float animation on hover */
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   ========================================== */
+@media (max-width: 850px) {
+    /* Tablet behavior: center blocks visually when horizontal space narrows */
+    .top-bar-container {
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .top-bar-left {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Tiny Smartphone Screen: Hide top strip completely to make room for the brand logo */
+    .top-bar {
+        display: none;
+    }
+}
+
+/* ==========================================
+   SCROLL UP/DOWN CONTROLS STYLES
+   ========================================== */
+.scroll-controls {
+    position: fixed;
+    bottom: 110px; /* Positions it perfectly stacked above your 30px floating WhatsApp button */
+    right: 30px;  /* Matches the right alignment offset of your layout buttons */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;    /* Spaces the up and down buttons apart clean */
+    z-index: 9997; /* Stays fixed above content elements */
+}
+
+.scroll-ctrl-btn {
+    width: 45px;
+    height: 45px;
+    background-color: #ffffff; /* Crisp white background */
+    color: #007bff;            /* Your signature Mwiki Medical Blue */
+    border: 2px solid #007bff; /* Sharp definition border */
+    border-radius: 50%;        /* Perfect floating circles */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.15);
+    transition: all 0.3s ease-in-out;
+    opacity: 1;                /* Default visibility setting */
+    transform: scale(1);
+}
+
+/* Smart Auto-Hide Rule for the Scroll Up Arrow */
+#scrollUpBtn {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px); /* Starts slightly lower down out of frame */
+}
+
+/* Active helper utility class injected by JS when scrolling happens */
+#scrollUpBtn.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* Interactive Hover States */
+.scroll-ctrl-btn:hover {
+    background-color: #007bff;
+    color: #ffffff;            /* Inverts colors beautifully on focus */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3);
+}
+
+/* Shrink down subtly on mobile screens so they don't block critical screen space */
+@media (max-width: 480px) {
+    .scroll-controls {
+        right: 20px;
+        bottom: 105px;
+    }
+    .scroll-ctrl-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 14px;
+    }
+}

@@ -22,7 +22,157 @@
     <nav class="navbar">
         ...
     <!-- Navigation Bar -->
+     <div class="top-bar">
+    <div class="top-bar-container">
+        <div class="top-bar-left">
+            <span class="top-bar-item">
+                <i class="fas fa-map-marker-alt"></i> 6 Red Soil St, Nairobi
+            </span>
+            <span class="top-bar-item">
+                <i class="fas fa-phone"></i> <a href="tel:+254748662082">+254 748 662082</a>
+            </span>
+            <span class="top-bar-item">
+                <i class="fas fa-envelope"></i> <a href="mailto:mwikimodern@gmail.com">mwikimodern@gmail.com</a>
+            </span>
+        </div>
+        <div class="top-bar-right">
+            <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0ELD2Qo3aEy22pJXHvu7yXRk7jHAVJNUQgduqdjvtWEiBJrbbPbLj1mifrmDajjH2l&id=100057780334661" target="_blank" class="top-social-icon" title="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/explore/locations/1847337145300613/mwiki-modern-maternity-hospital/" target="_blank" class="top-social-icon" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+    </div>
+</div>
     <nav class="navbar">
+        <div class="top-bar">
+        <div class="top-bar-container">
+            <div class="top-bar-left">
+                <span class="top-bar-item">
+                    <i class="fas fa-map-marker-alt"></i> 6 Red Soil St, Nairobi
+                </span>
+                <span class="top-bar-item">
+                    <i class="fas fa-phone"></i> <a href="tel:+254748662082">+254 748 662082</a>
+                </span>
+                <span class="top-bar-item">
+                    <i class="fas fa-envelope"></i> <a href="mailto:mwikimodern@gmail.com">mwikimodern@gmail.com</a>
+                </span>
+            </div>
+            <div class="top-bar-right">
+                <a href="#" class="top-social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="top-social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        ```
+
+### Step 2: Add the CSS Styling
+Next, open your `style.css` file and add this block of styling. This will give it that clean, professional layout from your reference image, complete with the light background, blue icons, and a neat row structure.
+
+```css
+/* ==========================================
+   TOP BAR STYLES
+   ========================================== */
+.top-bar {
+    background-color: #f8f9fa; /* Light, subtle gray */
+    border-bottom: 1px solid #eaeaea;
+    padding: 8px 0;
+    font-size: 13px; /* Keep text small and neat */
+    font-weight: 500;
+}
+
+.top-bar-container {
+    max-width: 1200px; /* Match this to your navbar's max-width if needed */
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-bar-left {
+    display: flex;
+    gap: 25px; /* Spacing between the three items */
+}
+
+.top-bar-item {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Spacing between the icon and the text */
+    color: #555555;
+}
+
+.top-bar-item i {
+    color: #007bff; /* Medical blue for the icons */
+    font-size: 14px;
+}
+
+.top-bar-item a {
+    color: #555555;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.top-bar-item a:hover {
+    color: #007bff;
+}
+
+.top-bar-right {
+    display: flex;
+    gap: 10px;
+}
+
+.top-social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background-color: #eeeeee;
+    color: #555555;
+    border-radius: 50%; /* Makes the background a circle */
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.top-social-icon i {
+    font-size: 12px;
+}
+
+.top-social-icon:hover {
+    background-color: #007bff;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   MOBILE RESPONSIVENESS FOR TOP BAR
+   ========================================== */
+@media (max-width: 850px) {
+    .top-bar-container {
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .top-bar-left {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* On very small phone screens, hide the top bar to save space for the logo and menu */
+    .top-bar {
+        display: none; 
+    }
+}
+
+
         <div class="nav-container">
             <div class="nav-logo">
                 <img src="/images/favicon.png" alt="MWIKI Modern Medical Centre" class="logo-img site-logo-float" width="40" height="40">
@@ -192,5 +342,14 @@
     </div>
 
     <script src="/script.js"></script>
+
+    <div class="scroll-controls">
+    <button id="scrollUpBtn" class="scroll-ctrl-btn" title="Scroll to Top" onclick="scrollToTop()">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    <button id="scrollDownBtn" class="scroll-ctrl-btn" title="Scroll to Bottom" onclick="scrollToBottom()">
+        <i class="fas fa-chevron-down"></i>
+    </button>
+</div>
 </body>
 </html>

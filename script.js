@@ -280,3 +280,36 @@ if (contactForm) {
         }, 500);
     });
 }
+
+// ================================================
+// 10. SCROLL-TO-TOP & SCROLL-TO-BOTTOM MECHANICS
+// ================================================
+
+// Instantly scrolls the browser viewport back to the top pixel boundary cleanly
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+// Instantly scrolls the browser viewport to the absolute bottom of the document
+function scrollToBottom() {
+    window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: 'smooth'
+    });
+}
+
+// Listen for scroll shifts to dynamically show/hide the 'Scroll Up' button
+window.addEventListener('scroll', function() {
+    const scrollUpBtn = document.getElementById('scrollUpBtn');
+    if (!scrollUpBtn) return;
+
+    // If the user scrolls down more than 300px from the absolute top, reveal the up arrow
+    if (window.scrollY > 300) {
+        scrollUpBtn.classList.add('visible');
+    } else {
+        scrollUpBtn.classList.remove('visible');
+    }
+});
