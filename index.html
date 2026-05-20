@@ -84,11 +84,25 @@
     <!-- Main Content -->
     <main>
         <!-- Hero Section with H1 -->
-        <section class="hero">
+        <section class="hero-video-section">
+    <div class="video-bg-wrapper">
+        <video autoplay loop muted playsinline poster="/images/hero-fallback.jpg" class="hero-media-element desktop-only-video">
+            <source src="/videos/hero-bg.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-dark-overlay"></div>
+    </div>
+
+    <div class="hero-video-content">
+        <div class="hero-heading-box">
             <h1 class="glass-heading">MWIKI MODERN MEDICAL CENTRE</h1>
-            <p class="hero-subtitle">Your Trusted Medical Partner for Quality Healthcare</p>
-            <a href="/contact/" class="appointment-btn">Schedule Your Appointment Now</a>
-        </section>
+        </div>
+        <p class="hero-subtitle">Your Trusted Medical Partner for Quality Healthcare</p>
+        <div class="hero-action-container">
+            <button class="schedule-cta-btn" onclick="scrollToContact()">Schedule Your Appointment Now</button>
+        </div>
+    </div>
+</section>
 
         <!-- Slideshow Section -->
         <section class="slideshow-section">
