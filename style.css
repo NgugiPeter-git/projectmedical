@@ -18,15 +18,21 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
+
+    /* PREMIUM WHITE-BLUE GRADIENT MIX */
+    background: linear-gradient(-45deg, #ffffff, #f0f8ff, #e6f2ff, #cce6ff, #eef7ff);
     
-    /* Premium Azure Blue Gradient Mix */
-    background: linear-gradient(-45deg, #f0f8ff, #e6f2ff, #cce6ff, #eef7ff);
+    /* ENLARGES THE GRADIENT AREA SO IT CAN SLIDE WITHIN THE FRAME */
     background-size: 400% 400%;
     
-    /* Triggers the "live" shifting animation */
+    /* FIXES IT TO THE VIEWPORT SO SCROLLING DOES NOT TEAR THE ANIMATION */
+    background-attachment: fixed;
+    
+    /* TRIGGERS THE LIVE SHIFTING GRADIENT ANIMATION */
     animation: azureLiveBg 15s ease infinite;
 }
 
+/* LIVE SHIFTING BACKGROUND ANIMATION LOGIC */
 @keyframes azureLiveBg {
     0% {
         background-position: 0% 50%;
@@ -340,7 +346,7 @@ main {
 }
 
 .hero .hero-subtitle {
-    color: rgba(255, 255, 255, 0.92);
+    color: rgba(0, 0, 0, 0.92);
     font-size: 1.2rem;
     max-width: 760px;
     margin: 1rem auto 1.5rem;
