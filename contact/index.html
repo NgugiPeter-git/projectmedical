@@ -10,69 +10,66 @@
     <meta property="og:title" content="Contact MWIKI Modern Medical Centre">
     <meta property="og:description" content="Location, phone, and email for appointments and enquiries.">
     <meta property="og:type" content="website">
-    <link rel="stylesheet" href="/style.css">
+    <link class="style-sheet-ref" rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <body>
     <div id="preloader">
         <img src="/images/favicon.png" alt="Loading Mwiki Medical..." class="bouncing-logo">
     </div>
 
-    <nav class="navbar">
-        ...
-    <!-- Navigation Bar -->
-     <div class="top-bar">
-    <div class="top-bar-container">
-        <div class="top-bar-left">
-            <span class="top-bar-item">
-                <i class="fas fa-map-marker-alt"></i> 6 Red Soil St, Nairobi
-            </span>
-            <span class="top-bar-item">
-                <i class="fas fa-phone"></i> <a href="tel:+254748662082">+254 748 662082</a>
-            </span>
-            <span class="top-bar-item">
-                <i class="fas fa-envelope"></i> <a href="mailto:mwikimodern@gmail.com">mwikimodern@gmail.com</a>
-            </span>
-        </div>
-        <div class="top-bar-right">
-            <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0ELD2Qo3aEy22pJXHvu7yXRk7jHAVJNUQgduqdjvtWEiBJrbbPbLj1mifrmDajjH2l&id=100057780334661" target="_blank" class="top-social-icon" title="Facebook">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="https://www.instagram.com/explore/locations/1847337145300613/mwiki-modern-maternity-hospital/" target="_blank" class="top-social-icon" title="Instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <div class="top-bar-left">
+                <span class="top-bar-item">
+                    <i class="fas fa-map-marker-alt"></i> 6 Red Soil St, Nairobi
+                </span>
+                <span class="top-bar-item">
+                    <i class="fas fa-phone"></i> <a href="tel:+254748662082">+254 748 662082</a>
+                </span>
+                <span class="top-bar-item">
+                    <i class="fas fa-envelope"></i> <a href="mailto:mwikimodern@gmail.com">mwikimodern@gmail.com</a>
+                </span>
+            </div>
+            <div class="top-bar-right">
+                <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0ELD2Qo3aEy22pJXHvu7yXRk7jHAVJNUQgduqdjvtWEiBJrbbPbLj1mifrmDajjH2l&id=100057780334661" target="_blank" class="top-social-icon" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/explore/locations/1847337145300613/mwiki-modern-maternity-hospital/" target="_blank" class="top-social-icon" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
         </div>
     </div>
-</div>
+
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
                 <img src="/images/favicon.png" alt="MWIKI Modern Medical Centre" class="logo-img site-logo-float" width="40" height="40">
                 <h2 class="logo-text">mwiki modern medical centre</h2>
             </div>
+            
             <ul class="nav-menu">
-    <li class="nav-item">
-        <a href="/" class="nav-link active">Home</a>
-    </li>
-    <li class="nav-item">
-        <a href="/services/" class="nav-link">Services</a>
-    </li>
-    <li class="nav-item">
-        <a href="/departments/" class="nav-link">Departments</a>
-    </li>
-    <li class="nav-item">
-        <a href="/about/" class="nav-link">About</a>
-    </li>
-    <li class="nav-item">
-        <a href="/contact/" class="nav-link">Contact Us</a>
-    </li>
-</ul>
                 <li class="nav-item">
-                   <a href="https://wa.me/254748662082?text=Hello%20MWIKI%20Modern%20Health%20Centre%2C%20I%20would%20like%20to%20inquire%20about%20your%20services" target="_blank" class="floating-whatsapp" title="Chat with us on WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>               </li>
+                    <a href="/" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/services/" class="nav-link">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/departments/" class="nav-link">Departments</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/about/" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/contact/" class="nav-link active">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="tel:+254748662082" class="nav-link cta-button">Book Appointment</a>
+                </li>
             </ul>
+            
             <div class="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -81,15 +78,24 @@
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <section class="page-header">
-        <h1 class="glass-heading">Contacts</h1>
-        <p>We're Here to Help. Get In Touch With Us Today</p>
-    </section>
-
-    <!-- Main Content -->
     <main>
-        <!-- Contact Information -->
+        <section class="hero-video-section">
+            <div class="video-bg-wrapper">
+                <video autoplay loop muted playsinline poster="/images/hero-fallback.jpg" class="hero-media-element desktop-only-video">
+                    <source src="/videos/hero-bg.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="hero-dark-overlay"></div>
+            </div>
+
+            <div class="hero-video-content">
+                <div class="hero-heading-box">
+                    <h1 class="glass-heading">Contacts</h1>
+                </div>
+                <p class="hero-subtitle">We're Here to Help. Get In Touch With Us Today</p>
+            </div>
+        </section>
+
         <section class="contact-info-section">
             <h2 class="glass-heading">Get In Touch</h2>
             <div class="contact-grid">
@@ -123,7 +129,6 @@
             </div>
         </section>
 
-        <!-- Contact Form -->
         <section class="contact-form-section">
             <h2 class="glass-heading-h2">Send Us a Message</h2>
             <form class="contact-form" id="contactForm">
@@ -172,7 +177,6 @@
             </form>
         </section>
 
-        <!-- Appointment Booking Section -->
         <section class="appointment-section">
             <h2 class="glass-heading">Book An Appointment</h2>
             <p>Ready to schedule your visit? We make it easy!</p>
@@ -200,7 +204,6 @@
             </div>
         </section>
 
-        <!-- Map Section -->
         <section class="map-section">
             <h2 class="glass-heading-h2">Find Us</h2>
             <p>Visit our modern healthcare facility</p>
@@ -210,12 +213,10 @@
         </section>
     </main>
 
-    <!-- WhatsApp CTA Button -->
     <a href="https://wa.me/254748662082?text=Hello%20MWIKI%20Modern%20Health%20Centre%2C%20I%20would%20like%20to%20inquire%20about%20your%20services" target="_blank" class="whatsapp-btn" title="Chat with us on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section footer-brand">
@@ -229,10 +230,10 @@
                 <h4>Quick Links</h4>
                 <ul>
                     <li><a href="/">Home</a></li>
-<li><a href="/services/">Services</a></li>
-<li><a href="/departments/">Departments</a></li>
-<li><a href="/about/">About</a></li>
-<li><a href="/contact/">Contact</a></li>
+                    <li><a href="/services/">Services</a></li>
+                    <li><a href="/departments/">Departments</a></li>
+                    <li><a href="/about/">About</a></li>
+                    <li><a href="/contact/">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -254,7 +255,7 @@
         </div>
     </footer>
 
-   <div id="cookie-banner" class="cookie-container">
+    <div id="cookie-banner" class="cookie-container">
         <div class="cookie-content">
             <p>We use cookies to ensure you get the best experience on our medical portal. By continuing to visit our site, you agree to our use of cookies.</p>
             <button id="accept-cookies" class="cookie-btn">Accept & Close</button>
@@ -264,12 +265,12 @@
     <script src="/script.js"></script>
 
     <div class="scroll-controls">
-    <button id="scrollUpBtn" class="scroll-ctrl-btn" title="Scroll to Top" onclick="scrollToTop()">
-        <i class="fas fa-chevron-up"></i>
-    </button>
-    <button id="scrollDownBtn" class="scroll-ctrl-btn" title="Scroll to Bottom" onclick="scrollToBottom()">
-        <i class="fas fa-chevron-down"></i>
-    </button>
-</div>
+        <button id="scrollUpBtn" class="scroll-ctrl-btn" title="Scroll to Top" onclick="scrollToTop()">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+        <button id="scrollDownBtn" class="scroll-ctrl-btn" title="Scroll to Bottom" onclick="scrollToBottom()">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+    </div>
 </body>
 </html>
