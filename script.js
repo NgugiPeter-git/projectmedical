@@ -313,3 +313,45 @@ window.addEventListener('scroll', function() {
         scrollUpBtn.classList.remove('visible');
     }
 });
+
+// Add these functions to your existing script.js
+function changeSlide(n) {
+    showSlide(slideIndex += n);
+}
+
+function currentSlide(n) {
+    showSlide(slideIndex = n);
+}
+
+// Updated showSlide to clear previous timers
+function showSlide(n) {
+    let slides = document.querySelectorAll('.slide');
+    let dots = document.querySelectorAll('.dot');
+    
+    if (n > slides.length) slideIndex = 1;
+    if (n < 1) slideIndex = slides.length;
+    
+    slides.forEach(s => s.style.display = "none");
+    dots.forEach(d => d.classList.remove('active'));
+    
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].classList.add('active');
+    
+    // Reset auto-timer so it doesn't conflict with manual clicks
+    clearTimeout(slideTimer);
+    autoSlide();
+}
+
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  "name": "Mwiki Modern Medical Centre",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "6 Red Soil St",
+    "addressLocality": "Mwiki, Nairobi",
+    "addressCountry": "KE"
+  },
+  "telephone": "+254748662082",
+  "openingHours": "Mo-Su 00:00-24:00"
+}
