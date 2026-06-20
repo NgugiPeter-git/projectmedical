@@ -148,6 +148,7 @@ a {
     border-radius: 25px;
     font-weight: 600;
     box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+    margin-left: 0.5rem; /* Ensures the button doesn't crowd the standard text links */
 }
 
 .nav-link.cta-button:hover {
@@ -235,11 +236,37 @@ a {
     height: 600px;
     object-fit: cover;
     display: block;
+    animation: zoomIn 10s infinite linear;
 }
 
 @keyframes fade {
     from { opacity: 0.4; }
     to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.slide-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+    width: 80%;
+}
+
+.slide-text h1 {
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 .slide-caption {
@@ -366,7 +393,6 @@ main {
     box-shadow: 0 6px 22px rgba(0, 0, 0, 0.18);
     transform: translateY(-2px);
 }
-
 
 .hero-subtitle {
     font-size: 1.3rem;
@@ -1013,7 +1039,8 @@ main {
    CONTACT SECTION
    ================================ */
 .contact-info-section {
-    background-image: url('/images/background-image.png.png');
+    /* TYPO FIXED HERE: Removed the double .png.png causing a network 404 Error */
+    background-image: url('/images/background-image.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -1420,22 +1447,35 @@ main {
     }
 }
 
-/* Full-screen overlay */
+/* ================================
+   PRELOADER FAIL-SAFE FIX
+   ================================ */
 #preloader {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #ffffff; /* Matches your white background */
+    background-color: #ffffff;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999; /* Ensures it sits on top of everything */
+    z-index: 9999;
     transition: opacity 0.5s ease, visibility 0.5s ease;
+    
+    /* FAIL-SAFE ADDED: Auto-hides after 3 seconds even if images/JS fail or hang */
+    animation: forceHidePreloader 0.5s ease-in-out forwards;
+    animation-delay: 3s; 
 }
 
-/* The bouncing effect */
+@keyframes forceHidePreloader {
+    to {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+}
+
 .bouncing-logo {
     width: 80px;
     height: 80px;
@@ -1447,26 +1487,26 @@ main {
     100% { transform: translateY(-20px); }
 }
 
-/* Class to hide it once loaded */
 .preloader-hidden {
     opacity: 0;
     visibility: hidden;
 }
 
-/* Fixed bottom banner track */
+/* ================================
+   COOKIE BANNER
+   ================================ */
 .cookie-container {
     position: fixed;
-    bottom: -100px; /* Hidden off-screen by default */
+    bottom: -100px;
     left: 0;
     width: 100%;
-    background-color: #0f172a; /* Premium Dark Slate matching a clean palette */
+    background-color: #0f172a;
     color: #ffffff;
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
-    z-index: 10000; /* Stays above preloaders and floating elements */
+    z-index: 10000;
     transition: bottom 0.5s ease-in-out;
 }
 
-/* Slide up animation trigger class */
 .cookie-container.show {
     bottom: 0;
 }
@@ -1490,7 +1530,7 @@ main {
 }
 
 .cookie-btn {
-    background-color: #007bff; /* Clinical Azure Blue */
+    background-color: #007bff;
     color: white;
     border: none;
     padding: 8px 20px;
@@ -1505,7 +1545,6 @@ main {
     background-color: #0056b3;
 }
 
-/* Responsive breakpoint for mobile */
 @media (max-width: 768px) {
     .cookie-content p { max-width: 100%; text-align: center; }
     .cookie-btn { width: 100%; }
@@ -1520,59 +1559,59 @@ main {
     right: 30px;
     width: 60px;
     height: 60px;
-    background-color: #25d366; /* WhatsApp Green */
+    background-color: #25d366;
     color: #ffffff !important;
-    border-radius: 50%;        /* Forces a perfect circle */
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 32px;           /* Makes the icon nice and large */
+    font-size: 32px;
     box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-    z-index: 9998;             /* Stays on top, but right below the cookie banner */
+    z-index: 9998;
     transition: transform 0.3s ease, background-color 0.3s ease;
     text-decoration: none;
 }
 
 .floating-whatsapp:hover {
-    transform: scale(1.1);     /* Slight pop-out effect when hovered */
-    background-color: #128c7e; /* Darker green */
+    transform: scale(1.1);
+    background-color: #128c7e;
 }
 
 /* ==========================================
    TOP BAR MASTER STYLES
    ========================================== */
 .top-bar {
-    background-color: #f8f9fa; /* Elegant light gray background strip */
+    background-color: #f8f9fa;
     border-bottom: 1px solid #eaeaea;
     padding: 8px 0;
-    font-size: 13px; /* Keeps text slim and readable */
+    font-size: 13px;
     font-weight: 500;
     font-family: sans-serif;
 }
 
 .top-bar-container {
-    max-width: 1200px; /* Aligns perfectly with your main navigation container limits */
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
-    justify-content: space-between; /* Pushes contacts left, socials right */
+    justify-content: space-between;
     align-items: center;
 }
 
 .top-bar-left {
     display: flex;
-    gap: 25px; /* Clean horizontal spacing between text pieces */
+    gap: 25px;
 }
 
 .top-bar-item {
     display: flex;
     align-items: center;
-    gap: 8px; /* Spaces out FontAwesome icons from the actual text strings */
+    gap: 8px;
     color: #555555;
 }
 
 .top-bar-item i {
-    color: #007bff; /* Medical theme brand blue for icons */
+    color: #007bff;
     font-size: 14px;
 }
 
@@ -1583,7 +1622,7 @@ main {
 }
 
 .top-bar-item a:hover {
-    color: #007bff; /* Turns blue when user hovers mouse over link elements */
+    color: #007bff;
 }
 
 .top-bar-right {
@@ -1599,7 +1638,7 @@ main {
     height: 28px;
     background-color: #eeeeee;
     color: #555555;
-    border-radius: 50%; /* Creates uniform circular backdrops */
+    border-radius: 50%;
     text-decoration: none;
     transition: all 0.3s ease;
 }
@@ -1611,14 +1650,10 @@ main {
 .top-social-icon:hover {
     background-color: #007bff;
     color: #ffffff;
-    transform: translateY(-2px); /* Soft micro-movement float animation on hover */
+    transform: translateY(-2px);
 }
 
-/* ==========================================
-   RESPONSIVE DESIGN BREAKPOINTS
-   ========================================== */
 @media (max-width: 850px) {
-    /* Tablet behavior: center blocks visually when horizontal space narrows */
     .top-bar-container {
         flex-direction: column;
         justify-content: center;
@@ -1633,7 +1668,6 @@ main {
 }
 
 @media (max-width: 480px) {
-    /* Tiny Smartphone Screen: Hide top strip completely to make room for the brand logo */
     .top-bar {
         display: none;
     }
@@ -1644,21 +1678,21 @@ main {
    ========================================== */
 .scroll-controls {
     position: fixed;
-    bottom: 110px; /* Positions it perfectly stacked above your 30px floating WhatsApp button */
-    right: 30px;  /* Matches the right alignment offset of your layout buttons */
+    bottom: 110px;
+    right: 30px;
     display: flex;
     flex-direction: column;
-    gap: 10px;    /* Spaces the up and down buttons apart clean */
-    z-index: 9997; /* Stays fixed above content elements */
+    gap: 10px;
+    z-index: 9997;
 }
 
 .scroll-ctrl-btn {
     width: 45px;
     height: 45px;
-    background-color: #ffffff; /* Crisp white background */
-    color: #007bff;            /* Your signature Mwiki Medical Blue */
-    border: 2px solid #007bff; /* Sharp definition border */
-    border-radius: 50%;        /* Perfect floating circles */
+    background-color: #ffffff;
+    color: #007bff;
+    border: 2px solid #007bff;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1666,33 +1700,29 @@ main {
     cursor: pointer;
     box-shadow: 0 4px 10px rgba(0, 123, 255, 0.15);
     transition: all 0.3s ease-in-out;
-    opacity: 1;                /* Default visibility setting */
+    opacity: 1;
     transform: scale(1);
 }
 
-/* Smart Auto-Hide Rule for the Scroll Up Arrow */
 #scrollUpBtn {
     opacity: 0;
     pointer-events: none;
-    transform: translateY(10px); /* Starts slightly lower down out of frame */
+    transform: translateY(10px);
 }
 
-/* Active helper utility class injected by JS when scrolling happens */
 #scrollUpBtn.visible {
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);
 }
 
-/* Interactive Hover States */
 .scroll-ctrl-btn:hover {
     background-color: #007bff;
-    color: #ffffff;            /* Inverts colors beautifully on focus */
+    color: #ffffff;
     transform: translateY(-3px);
     box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3);
 }
 
-/* Shrink down subtly on mobile screens so they don't block critical screen space */
 @media (max-width: 480px) {
     .scroll-controls {
         right: 20px;
@@ -1720,12 +1750,11 @@ main {
     text-align: center;
     padding: 40px 20px;
     
-    /* 1. SMART FALLBACK BACKGROUND: Displays instantly on all screens while video loads */
     background-image: url('/images/hero-fallback.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: #004085; /* Secondary fallback color block */
+    background-color: #004085;
 }
 
 .video-bg-wrapper {
@@ -1750,14 +1779,13 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
-    /* Matches your signature blue depth profile tint over both the video AND fallback image */
     background: linear-gradient(135deg, rgba(0, 75, 160, 0.85), rgba(0, 123, 255, 0.6));
-    z-index: 2; /* Sits over the media but under the text */
+    z-index: 2;
 }
 
 .hero-video-content {
     position: relative;
-    z-index: 3; /* Pushes text on top of everything */
+    z-index: 3;
     max-width: 900px;
     width: 100%;
     display: flex;
@@ -1765,7 +1793,6 @@ main {
     align-items: center;
 }
 
-/* Glass panel border around main H1 heading text */
 .hero-heading-box {
     background: rgba(255, 255, 255, 0.07);
     backdrop-filter: blur(8px);
@@ -1796,7 +1823,6 @@ main {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-/* Exact retained button styling geometry */
 .schedule-cta-btn {
     background-color: #ffffff;
     color: #0062cc;
@@ -1817,16 +1843,11 @@ main {
     color: #004085;
 }
 
-/* =========================================================
-   2. MOBILE BREAKPOINT INTERACTION ENGINE
-   ========================================================= */
 @media (max-width: 768px) {
-    /* Completely blocks mobile data networks from downloading or running the video */
     .desktop-only-video {
         display: none !important;
     }
     
-    /* Tweaks font text scales so layout looks balanced on mobile phone sizes */
     .hero-heading-box h1 { 
         font-size: 1.8rem; 
     }
@@ -1836,38 +1857,4 @@ main {
     .hero-heading-box { 
         padding: 15px 20px; 
     }
-}
-
-/* Zoom-in Animation for images */
-.slide img {
-    width: 100%;
-    height: 600px;
-    object-fit: cover;
-    animation: zoomIn 10s infinite linear;
-}
-
-@keyframes zoomIn {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
-}
-
-/* Centered Text Overlay */
-.slide-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-    background: rgba(0, 0, 0, 0.4); /* Dark background for readability */
-    padding: 2rem;
-    border-radius: 15px;
-    backdrop-filter: blur(5px);
-    width: 80%;
-}
-
-.slide-text h1 {
-    font-size: 3rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }

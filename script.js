@@ -341,17 +341,3 @@ function showSlide(n) {
     clearTimeout(slideTimer);
     autoSlide();
 }
-
-{
-  "@context": "https://schema.org",
-  "@type": "MedicalBusiness",
-  "name": "Mwiki Modern Medical Centre",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "6 Red Soil St",
-    "addressLocality": "Mwiki, Nairobi",
-    "addressCountry": "KE"
-  },
-  "telephone": "+254748662082",
-  "openingHours": "Mo-Su 00:00-24:00"
-}
