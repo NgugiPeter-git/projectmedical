@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="canonical" href="https://mwikimodernmedicalcentre.co.ke/about" />
     <meta name="description" content="Learn about MWIKI Modern Medical Centre in Nairobi — our mission, team, and commitment to quality patient care.">
     <meta name="robots" content="index, follow">
@@ -12,68 +13,110 @@
     <meta property="og:type" content="website">
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Force White-Blue Theme on About Sections */
+        .elementor-about, 
+        .elementor-mvv, 
+        .elementor-features, 
+        .elementor-team {
+            background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(230,242,255,0.9) 100%) !important;
+        }
+        
+        /* Premium Card Styling to match the blue theme */
+        .elementor-card, 
+        .elementor-feature, 
+        .elementor-team-member {
+            background: #ffffff !important;
+            border: 1px solid #cce6ff !important;
+            box-shadow: 0 4px 20px rgba(0, 120, 212, 0.08) !important;
+        }
+
+        /* Adjust Headings to brand blue */
+        .elementor-heading-secondary {
+            color: #005a9e !important;
+        }
+
+        /* Preloader fail-safe */
+        #preloader {
+            animation: fadeOutPreloader 0.5s ease-in-out forwards;
+            animation-delay: 2.5s; 
+        }
+        @keyframes fadeOutPreloader {
+            to { opacity: 0; visibility: hidden; pointer-events: none; }
+        }
+
+        /* Nav Menu Spacing Fix */
+        .nav-menu {
+            display: flex !important;
+            align-items: center !important;
+            gap: 1.5rem !important; 
+        }
+        .nav-link.cta-button {
+            margin-left: 0.5rem !important;
+        }
+    </style>
 </head>
-    <body>
+<body>
     <div id="preloader">
         <img src="/images/favicon.png" alt="Loading Mwiki Medical..." class="bouncing-logo">
     </div>
 
-    <nav class="navbar">
-        ...
-    <!-- Navigation Bar -->
-     <div class="top-bar">
-    <div class="top-bar-container">
-        <div class="top-bar-left">
-            <span class="top-bar-item">
-                <i class="fas fa-map-marker-alt"></i> 6 Red Soil St, Nairobi
-            </span>
-            <span class="top-bar-item">
-                <i class="fas fa-phone"></i> <a href="tel:+254748662082">+254 748 662082</a>
-            </span>
-            <span class="top-bar-item">
-                <i class="fas fa-envelope"></i> <a href="mailto:mwikimodern@gmail.com">mwikimodern@gmail.com</a>
-            </span>
-            <span class="top-bar-item highlight-badge">
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <div class="top-bar-left">
+                <span class="top-bar-item">
+                    <i class="fas fa-map-marker-alt"></i> 6 Red Soil St, Nairobi
+                </span>
+                <span class="top-bar-item">
+                    <i class="fas fa-phone"></i> <a href="tel:+254748662082">+254 748 662082</a>
+                </span>
+                <span class="top-bar-item">
+                    <i class="fas fa-envelope"></i> <a href="mailto:mwikimodern@gmail.com">mwikimodern@gmail.com</a>
+                </span>
+                <span class="top-bar-item highlight-badge">
                     <i class="fas fa-clock"></i> Open 24 Hours Everyday
                 </span>
-        </div>
-        <div class="top-bar-right">
-            <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0ELD2Qo3aEy22pJXHvu7yXRk7jHAVJNUQgduqdjvtWEiBJrbbPbLj1mifrmDajjH2l&id=100057780334661" target="_blank" class="top-social-icon" title="Facebook">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="https://www.instagram.com/explore/locations/1847337145300613/mwiki-modern-maternity-hospital/" target="_blank" class="top-social-icon" title="Instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
+            </div>
+            <div class="top-bar-right">
+                <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0ELD2Qo3aEy22pJXHvu7yXRk7jHAVJNUQgduqdjvtWEiBJrbbPbLj1mifrmDajjH2l&id=100057780334661" target="_blank" class="top-social-icon" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/explore/locations/1847337145300613/mwiki-modern-maternity-hospital/" target="_blank" class="top-social-icon" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
         </div>
     </div>
-</div>
+
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
                 <img src="/images/favicon.png" alt="MWIKI Modern Medical Centre" class="logo-img site-logo-float" width="40" height="40">
                 <h2 class="logo-text">mwiki modern medical centre</h2>
             </div>
-           <ul class="nav-menu">
-    <li class="nav-item">
-        <a href="/" class="nav-link active">Home</a>
-    </li>
-    <li class="nav-item">
-        <a href="/services/" class="nav-link">Services</a>
-    </li>
-    <li class="nav-item">
-        <a href="/departments/" class="nav-link">Departments</a>
-    </li>
-    <li class="nav-item">
-        <a href="/about/" class="nav-link">About</a>
-    </li>
-    <li class="nav-item">
-        <a href="/Contact/" class="nav-link">Contact</a>
-    </li>
-</ul>
+            
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/services/" class="nav-link">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/departments/" class="nav-link">Departments</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/about/" class="nav-link active">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Contact/" class="nav-link">Contact</a>
+                </li>
                 <li class="nav-item">
                     <a href="tel:+254748662082" class="nav-link cta-button">Appointment</a>
                 </li>
             </ul>
+            
             <div class="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -82,7 +125,6 @@
         </div>
     </nav>
 
-    <!-- Page Header -->
     <section class="elementor-section elementor-hero">
         <div class="elementor-container">
             <h1 class="elementor-heading">About Us</h1>
@@ -90,9 +132,7 @@
         </div>
     </section>
 
-    <!-- Main Content -->
     <main>
-        <!-- About Section -->
         <section class="elementor-section elementor-about">
             <div class="elementor-container">
                 <div class="elementor-row">
@@ -103,14 +143,13 @@
                     </div>
                     <div class="elementor-column">
                         <div class="elementor-image">
-                            <img src="/images/w3.jpeg" alt="MWIKI Modern Health Centre" style="width: 100%; height: auto; border-radius: 10px; display: block;">
+                            <img src="/images/w3.jpeg" alt="MWIKI Modern Health Centre" style="width: 100%; height: auto; border-radius: 10px; display: block; box-shadow: 0 8px 25px rgba(0,0,0,0.1);">
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Mission, Vision, Values -->
         <section class="elementor-section elementor-mvv">
             <div class="elementor-container">
                 <div class="elementor-row">
@@ -135,7 +174,6 @@
             </div>
         </section>
 
-        <!-- Why Choose Us -->
         <section class="elementor-section elementor-features">
             <div class="elementor-container">
                 <h2 class="elementor-heading-secondary">Why Choose MWIKI Modern Health Centre?</h2>
@@ -179,7 +217,6 @@
             </div>
         </section>
 
-        <!-- Team Section -->
         <section class="elementor-section elementor-team">
             <div class="elementor-container">
                 <h2 class="elementor-heading-secondary">Our Healthcare Team</h2>
@@ -216,7 +253,6 @@
             </div>
         </section>
 
-        <!-- CTA Section -->
         <section class="elementor-section elementor-cta">
             <div class="elementor-container">
                 <h2>Let Us Care For You</h2>
@@ -226,12 +262,10 @@
         </section>
     </main>
 
-    <!-- WhatsApp CTA Button -->
     <a href="https://wa.me/254748662082?text=Hello%20MWIKI%20Modern%20Health%20Centre%2C%20I%20would%20like%20to%20inquire%20about%20your%20services" target="_blank" class="whatsapp-btn" title="Chat with us on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section footer-brand">
@@ -245,10 +279,10 @@
                 <h4>Quick Links</h4>
                 <ul>
                     <li><a href="/">Home</a></li>
-<li><a href="/services/">Services</a></li>
-<li><a href="/departments/">Departments</a></li>
-<li><a href="/about/">About</a></li>
-<li><a href="/Contact/">Contact</a></li>
+                    <li><a href="/services/">Services</a></li>
+                    <li><a href="/departments/">Departments</a></li>
+                    <li><a href="/about/">About</a></li>
+                    <li><a href="/Contact/">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -278,12 +312,14 @@
     </div>
 
     <div class="scroll-controls">
-    <button id="scrollUpBtn" class="scroll-ctrl-btn" title="Scroll to Top" onclick="scrollToTop()">
-        <i class="fas fa-chevron-up"></i>
-    </button>
-    <button id="scrollDownBtn" class="scroll-ctrl-btn" title="Scroll to Bottom" onclick="scrollToBottom()">
-        <i class="fas fa-chevron-down"></i>
-    </button>
-</div>
+        <button id="scrollUpBtn" class="scroll-ctrl-btn" title="Scroll to Top" onclick="scrollToTop()">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+        <button id="scrollDownBtn" class="scroll-ctrl-btn" title="Scroll to Bottom" onclick="scrollToBottom()">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+    </div>
+
+    <script src="/script.js"></script>
 </body>
 </html>
