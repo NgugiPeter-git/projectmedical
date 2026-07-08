@@ -7,7 +7,7 @@
     <meta name="description" content="MWIKI Modern Medical Centre in Nairobi offers outpatient care, maternity, surgery, laboratory services, and appointments. Call +254 74 66202.">
     <meta name="keywords" content="MWIKI Modern Medical Centre, Nairobi hospital, maternity Nairobi, outpatient clinic Kenya, medical centre Red Soil Street">
     <meta name="robots" content="index, follow">
-    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link class="site-favicon" rel="icon" type="image/png" href="/images/favicon.png">
     <title>MWIKI Modern Medical Centre | Healthcare in Nairobi, Kenya</title>
     <meta property="og:title" content="MWIKI Modern Medical Centre | Healthcare in Nairobi">
     <meta property="og:description" content="Trusted medical care in Nairobi — appointments, maternity, surgery, and outpatient services.">
@@ -37,6 +37,24 @@
         .nav-link.cta-button {
             margin-left: 0.5rem !important;
         }
+
+        /* 4. Mobile Hero Fallback & Performance Smoothness Optimization */
+        html {
+            scroll-behavior: smooth;
+        }
+        @media (max-width: 768px) {
+            .video-bg-wrapper {
+                background-image: url('/images/hero-fallback.jpg') !important;
+                background-size: cover !important;
+                background-position: center !important;
+                background-repeat: no-repeat !important;
+            }
+            /* Eliminates frame stutters and layout shifts on mobile viewports */
+            .video-bg-wrapper, .hero-video-section, .scroll-ctrl-btn {
+                will-change: transform;
+                transform: translateZ(0);
+            }
+        }
     </style>
 </head>
 <body>
@@ -51,7 +69,7 @@
                     <i class="fas fa-map-marker-alt"></i> 6 Red Soil St, Nairobi
                 </span>
                 <span class="top-bar-item">
-                    <i class="fas fa-phone"></i> <a href="tel:+25474662082">+254 748 662082</a>
+                    <i class="fas fa-phone"></i> <a href="tel:+254748662082">+254 748 662082</a>
                 </span>
                 <span class="top-bar-item">
                     <i class="fas fa-envelope"></i> <a href="mailto:mwikimodern@gmail.com">mwikimodern@gmail.com</a>
@@ -328,6 +346,23 @@
     </footer>
 
     <script src="/script.js"></script>
+    
+    <!-- Fail-Safe Native Navigation Scripts for Flawless Mobile Operation -->
+    <script>
+        function scrollToContact() {
+            const targetSection = document.getElementById('contact') || document.querySelector('.quick-info') || document.querySelector('.footer');
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        function scrollToBottom() {
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        }
+    </script>
+
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
