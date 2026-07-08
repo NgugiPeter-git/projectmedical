@@ -146,18 +146,16 @@ function setupAmbientBackground() {
 }
 
 // ================================================
-// 6. SLIDESHOW COMPONENT CORE LOGIC
+// 6. SLIDESHOW COMPONENT CORE LOGIC (FIXED & MERGED)
 // ================================================
 function changeSlide(n) {
     clearTimeout(slideTimer);
     showSlide(slideIndex += n);
-    autoSlide();
 }
 
 function currentSlide(n) {
     clearTimeout(slideTimer);
     showSlide(slideIndex = n);
-    autoSlide();
 }
 
 function showSlide(n) {
@@ -169,11 +167,23 @@ function showSlide(n) {
     if (n > slides.length) { slideIndex = 1; }
     if (n < 1) { slideIndex = slides.length; }
 
-    slides.forEach(slide => slide.classList.remove('fade'));
+    slides.forEach(slide => {
+        slide.style.display = "none";
+        slide.classList.remove('fade');
+    });
+    
     dots.forEach(dot => dot.classList.remove('active'));
 
-    if (slides[slideIndex - 1]) { slides[slideIndex - 1].classList.add('fade'); }
-    if (dots[slideIndex - 1]) { dots[slideIndex - 1].classList.add('active'); }
+    if (slides[slideIndex - 1]) { 
+        slides[slideIndex - 1].style.display = "block";
+        slides[slideIndex - 1].classList.add('fade'); 
+    }
+    if (dots[slideIndex - 1]) { 
+        dots[slideIndex - 1].classList.add('active'); 
+    }
+
+    clearTimeout(slideTimer);
+    autoSlide();
 }
 
 function autoSlide() {
@@ -183,7 +193,6 @@ function autoSlide() {
     slideTimer = setTimeout(function() {
         slideIndex++;
         showSlide(slideIndex);
-        autoSlide();
     }, 5000);
 }
 
@@ -285,7 +294,6 @@ if (contactForm) {
 // 10. SCROLL-TO-TOP & SCROLL-TO-BOTTOM MECHANICS
 // ================================================
 
-// Instantly scrolls the browser viewport back to the top pixel boundary cleanly
 function scrollToTop() {
     window.scrollTo({
         top: 0,
@@ -293,7 +301,6 @@ function scrollToTop() {
     });
 }
 
-// Instantly scrolls the browser viewport to the absolute bottom of the document
 function scrollToBottom() {
     window.scrollTo({
         top: document.documentElement.scrollHeight,
@@ -301,43 +308,13 @@ function scrollToBottom() {
     });
 }
 
-// Listen for scroll shifts to dynamically show/hide the 'Scroll Up' button
 window.addEventListener('scroll', function() {
     const scrollUpBtn = document.getElementById('scrollUpBtn');
     if (!scrollUpBtn) return;
 
-    // If the user scrolls down more than 300px from the absolute top, reveal the up arrow
     if (window.scrollY > 300) {
         scrollUpBtn.classList.add('visible');
     } else {
         scrollUpBtn.classList.remove('visible');
     }
 });
-
-// Add these functions to your existing script.js
-function changeSlide(n) {
-    showSlide(slideIndex += n);
-}
-
-function currentSlide(n) {
-    showSlide(slideIndex = n);
-}
-
-// Updated showSlide to clear previous timers
-function showSlide(n) {
-    let slides = document.querySelectorAll('.slide');
-    let dots = document.querySelectorAll('.dot');
-    
-    if (n > slides.length) slideIndex = 1;
-    if (n < 1) slideIndex = slides.length;
-    
-    slides.forEach(s => s.style.display = "none");
-    dots.forEach(d => d.classList.remove('active'));
-    
-    slides[slideIndex - 1].style.display = "block";
-    dots[slideIndex - 1].classList.add('active');
-    
-    // Reset auto-timer so it doesn't conflict with manual clicks
-    clearTimeout(slideTimer);
-    autoSlide();
-}
