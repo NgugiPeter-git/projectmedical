@@ -38,22 +38,46 @@
             margin-left: 0.5rem !important;
         }
 
-        /* 4. Mobile Responsiveness Fix for Video Element & Fallback Background Image */
+        /* 4. Laptops and Wider Screens Layout Optimizations */
+        @media (min-width: 769px) {
+            .hero-video-section {
+                position: relative !important;
+                overflow: hidden !important;
+            }
+            .video-bg-wrapper {
+                position: absolute !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                height: 100% !important;
+                z-index: 1 !important;
+            }
+            .desktop-only-video {
+                width: 100% !important;
+                height: 100% !important;
+                object-fit: cover !important;
+                display: block !important;
+            }
+            .hero-video-content {
+                position: relative !important;
+                z-index: 2 !important;
+            }
+        }
+
+        /* 5. Phone & Mobile Screens Fallback Image Visibility Fix */
         @media (max-width: 768px) {
             .desktop-only-video {
                 display: none !important;
             }
-            .video-bg-wrapper {
+            .hero-video-section {
                 background-image: url('/images/hero-fallback.jpg') !important;
                 background-size: cover !important;
                 background-position: center !important;
                 background-repeat: no-repeat !important;
-                display: block !important;
+                position: relative !important;
             }
-            /* Hardware acceleration trick to ensure smooth scrolling operations across generic mobile web views */
-            body, main, .sticky-container {
-                -webkit-overflow-scrolling: touch;
-                will-change: transform;
+            .video-bg-wrapper {
+                display: none !important;
             }
         }
     </style>

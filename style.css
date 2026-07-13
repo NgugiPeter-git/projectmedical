@@ -726,6 +726,24 @@ main {
     padding: 2rem;
 }
 
+.elementor-image {
+    width: 100%;
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+.about-promo-video {
+    width: 100%;
+    height: auto;
+    max-height: 420px;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+    border-radius: 14px;
+    background: #000;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
 .elementor-column h2 {
     color: #008080;
     font-size: 2.5rem;
@@ -871,6 +889,56 @@ main {
     margin-bottom: 2rem;
     opacity: 0.9;
 }
+
+@media (max-width: 768px) {
+    .elementor-section {
+        padding: 3rem 0;
+    }
+
+    .elementor-container {
+        padding: 0 1rem;
+    }
+
+    .elementor-row {
+        gap: 1.25rem;
+    }
+
+    .elementor-column {
+        padding: 1rem 0;
+    }
+
+    .elementor-column h2 {
+        font-size: 1.9rem;
+    }
+
+    .elementor-image {
+        max-width: 100%;
+    }
+
+    .about-promo-video {
+        max-height: 320px;
+    }
+}
+
+@media (max-width: 480px) {
+    .elementor-hero {
+        padding: 4rem 1rem;
+    }
+
+    .elementor-hero .elementor-heading {
+        font-size: 2.2rem;
+    }
+
+    .elementor-column h2 {
+        font-size: 1.6rem;
+    }
+
+    .about-promo-video {
+        max-height: 220px;
+        border-radius: 12px;
+    }
+}
+
 .about-section {
     background: white;
     padding: 2rem;
