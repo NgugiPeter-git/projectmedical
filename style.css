@@ -734,8 +734,7 @@ main {
 
 .about-promo-frame {
     width: min(100%, 420px);
-    aspect-ratio: 9 / 16;
-    height: auto;
+    height: 748px;
     display: block;
     margin: 0 auto;
     border: 0;
@@ -919,7 +918,7 @@ main {
 
     .about-promo-frame {
         width: min(100%, 340px);
-        aspect-ratio: 9 / 16;
+        height: 600px;
     }
 }
 
@@ -947,7 +946,7 @@ main {
 
     .about-promo-frame {
         width: min(100%, 280px);
-        aspect-ratio: 9 / 16;
+        height: 500px;
         border-radius: 12px;
     }
 }
