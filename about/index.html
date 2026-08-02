@@ -93,24 +93,24 @@
         <div class="nav-container">
             <div class="nav-logo">
                 <img src="/images/favicon.png" alt="MWIKI Modern Medical Centre" class="logo-img site-logo-float" width="40" height="40">
-                <h2 class="logo-text">mwiki modern medical centre</h2>
+                <h2 class="logo-text">MWIKI MODERN MEDICAL CENTRE</h2>
             </div>
             
             <ul class="nav-menu">
                 <li class="nav-item">
-                    <a href="/" class="nav-link">Home</a>
+                    <a href="../" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/services/" class="nav-link">Services</a>
+                    <a href="../services/" class="nav-link">Services</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/departments/" class="nav-link">Departments</a>
+                    <a href="../departments/" class="nav-link">Departments</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/about/" class="nav-link active">About</a>
+                    <a href="./" class="nav-link active">About</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/Contact/" class="nav-link">Contact</a>
+                    <a href="../contact/" class="nav-link">Contact</a>
                 </li>
                 <li class="nav-item">
                     <a href="tel:+254748662082" class="nav-link cta-button">Appointment</a>
@@ -143,10 +143,13 @@
                     </div>
                     <div class="elementor-column">
                         <div class="elementor-image">
-                            <video class="about-promo-video" controls playsinline preload="metadata" poster="/images/w3.jpeg">
-                                <source src="/videos/promo.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
+                            <iframe
+                                class="about-promo-frame"
+                                title="MWIKI promo video"
+                                srcdoc="<video controls playsinline preload='metadata' style='width:100%;height:100%;object-fit:cover;border:0;background:#000;'><source src='/videos/promo.mp4' type='video/mp4'>Your browser does not support the video tag.</video>"
+                                loading="lazy"
+                                referrerpolicy="no-referrer">
+                            </iframe>
                         </div>
                     </div>
                 </div>
@@ -260,7 +263,7 @@
             <div class="elementor-container">
                 <h2>Let Us Care For You</h2>
                 <p>Experience quality healthcare with MWIKI Modern Health Centre</p>
-                <a href="/Contact/" class="appointment-btn">Get In Touch Today</a>
+                <a href="/contact/" class="appointment-btn">Get In Touch Today</a>
             </div>
         </section>
     </main>
@@ -274,18 +277,18 @@
             <div class="footer-section footer-brand">
                 <div class="footer-brand-inner">
                     <img src="/images/favicon.png" alt="MWIKI Modern Medical Centre" class="footer-logo site-logo-float" width="48" height="48">
-                    <h4>MWIKI Modern Medical Centre</h4>
+                    <h4>MWIKI MODERN MEDICAL CENTRE</h4>
                 </div>
                 <p>Providing quality healthcare services to the community.</p>
             </div>
             <div class="footer-section">
                 <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/services/">Services</a></li>
-                    <li><a href="/departments/">Departments</a></li>
-                    <li><a href="/about/">About</a></li>
-                    <li><a href="/Contact/">Contact</a></li>
+                    <li><a href="../">Home</a></li>
+                    <li><a href="../services/">Services</a></li>
+                    <li><a href="../departments/">Departments</a></li>
+                    <li><a href="./">About</a></li>
+                    <li><a href="../contact/">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">

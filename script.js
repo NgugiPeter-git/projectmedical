@@ -69,7 +69,7 @@ function scrollToContact() {
         contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     } else {
         // Safe directional redirect fallback for folder structure layout migration
-        window.location.href = '/contact/';
+        window.location.href = 'contact/';
     }
 }
 

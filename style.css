@@ -732,13 +732,13 @@ main {
     margin: 0 auto;
 }
 
-.about-promo-video {
-    width: 100%;
+.about-promo-frame {
+    width: min(100%, 420px);
+    aspect-ratio: 9 / 16;
     height: auto;
-    max-height: 420px;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
     display: block;
+    margin: 0 auto;
+    border: 0;
     border-radius: 14px;
     background: #000;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
@@ -904,19 +904,22 @@ main {
     }
 
     .elementor-column {
-        padding: 1rem 0;
+        padding: 0.75rem 0;
     }
 
     .elementor-column h2 {
         font-size: 1.9rem;
+        margin-bottom: 1rem;
     }
 
     .elementor-image {
         max-width: 100%;
+        margin-top: 0.5rem;
     }
 
-    .about-promo-video {
-        max-height: 320px;
+    .about-promo-frame {
+        width: min(100%, 340px);
+        aspect-ratio: 9 / 16;
     }
 }
 
@@ -929,12 +932,22 @@ main {
         font-size: 2.2rem;
     }
 
-    .elementor-column h2 {
-        font-size: 1.6rem;
+    .elementor-column {
+        padding: 0.5rem 0;
     }
 
-    .about-promo-video {
-        max-height: 220px;
+    .elementor-column h2 {
+        font-size: 1.6rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .elementor-image {
+        margin-top: 0.25rem;
+    }
+
+    .about-promo-frame {
+        width: min(100%, 280px);
+        aspect-ratio: 9 / 16;
         border-radius: 12px;
     }
 }
