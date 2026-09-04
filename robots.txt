@@ -1,0 +1,4 @@
+Sitemap: https://mwikimodernmedicalcentre.co.ke/sitemap.xml
+
+User-agent: *
+Disallow:
