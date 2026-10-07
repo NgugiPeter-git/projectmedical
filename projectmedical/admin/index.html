@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>MWIKI MODERN Admin | Decap CMS</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: Inter, Arial, sans-serif;
+        background: #f3f7fb;
+        color: #17324d;
+      }
+      * { box-sizing: border-box; }
+      body {
+        min-height: 100vh;
+        margin: 0;
+        display: grid;
+        place-items: center;
+        background:
+          radial-gradient(circle at top left, rgba(0, 120, 212, 0.12), transparent 35%),
+          #f3f7fb;
+      }
+      main {
+        width: min(100%, 520px);
+        padding: 2.5rem;
+        border-radius: 18px;
+        background: #fff;
+        box-shadow: 0 24px 60px rgba(23, 50, 77, 0.12);
+        text-align: center;
+      }
+      .logo {
+        width: 64px;
+        height: 64px;
+        margin-bottom: 1rem;
+        border-radius: 16px;
+      }
+      h1 { margin: 0 0 0.5rem; font-size: 1.6rem; }
+      p { margin: 0; color: #52677a; line-height: 1.6; }
+      .loading { margin-top: 2rem; color: #0078d4; font-weight: 700; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <img class="logo" src="/images/favicon.png" alt="MWIKI Modern Medical Centre" width="64" height="64">
+      <h1>MWIKI Content Dashboard</h1>
+      <p>Loading the Decap CMS editor...</p>
+      <div class="loading" aria-live="polite">Please wait</div>
+    </main>
+
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <script>
+      window.CMS_MANUAL_INIT = true;
+      window.addEventListener("load", function () {
+        window.CMS.init();
+      });
+    </script>
+  </body>
+</html>

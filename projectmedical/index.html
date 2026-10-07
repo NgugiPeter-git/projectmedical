@@ -1,37 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MWIKI Modern Health Centre - Home</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="canonical" href="https://mwikimodernmedicalcentre.co.ke/" />
+    <meta name="description" content="MWIKI Modern Medical Centre in Nairobi offers outpatient care, maternity, surgery, laboratory services, and appointments. Call +254 74 66202.">
+    <meta name="keywords" content="MWIKI Modern Medical Centre, Nairobi hospital, maternity Nairobi, outpatient clinic Kenya, medical centre Red Soil Street">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <title>MWIKI Modern Medical Centre | Healthcare in Nairobi, Kenya</title>
+    <meta property="og:title" content="MWIKI Modern Medical Centre | Healthcare in Nairobi">
+    <meta property="og:description" content="Trusted medical care in Nairobi — appointments, maternity, surgery, and outpatient services.">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* 1. Preloader Fail-Safe: Forces preloader to die after 2.5 seconds even if JS crashes */
+        #preloader {
+            animation: fadeOutPreloader 0.5s ease-in-out forwards;
+            animation-delay: 2.5s; 
+        }
+        @keyframes fadeOutPreloader {
+            from { opacity: 1; visibility: visible; }
+            to { opacity: 0; visibility: hidden; pointer-events: none; }
+        }
+
+        /* 2. Nav Menu Congestion Fix: Adds breathing room between links */
+        .nav-menu {
+            display: flex !important;
+            align-items: center !important;
+            gap: 1.5rem !important; 
+        }
+        
+        /* 3. CTA Button Isolation: Pushes it away from the 'Contact' link */
+        .nav-link.cta-button {
+            margin-left: 0.5rem !important;
+        }
+
+        /* 4. Laptops and Wider Screens Layout Optimizations */
+        @media (min-width: 769px) {
+            .hero-video-section {
+                position: relative !important;
+                overflow: hidden !important;
+            }
+            .video-bg-wrapper {
+                position: absolute !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                height: 100% !important;
+                z-index: 1 !important;
+            }
+            .desktop-only-video {
+                width: 100% !important;
+                height: 100% !important;
+                object-fit: cover !important;
+                display: block !important;
+            }
+            .hero-video-content {
+                position: relative !important;
+                z-index: 2 !important;
+            }
+        }
+
+        /* 5. Phone & Mobile Screens Fallback Image Visibility Fix */
+        @media (max-width: 768px) {
+            .desktop-only-video {
+                display: none !important;
+            }
+            .hero-video-section {
+                background-image: url('/images/hero-fallback.jpg') !important;
+                background-size: cover !important;
+                background-position: center !important;
+                background-repeat: no-repeat !important;
+                position: relative !important;
+            }
+            .video-bg-wrapper {
+                display: none !important;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
+    <div id="preloader">
+        <img src="/images/favicon.png" alt="Loading Mwiki Medical..." class="bouncing-logo">
+    </div>
+
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <div class="top-bar-left">
+                <span class="top-bar-item">
+                    <i class="fas fa-map-marker-alt"></i> 6 Red Soil St, Nairobi
+                </span>
+                <span class="top-bar-item">
+                    <i class="fas fa-phone"></i> <a href="tel:+25474662082">+254 748 662082</a>
+                </span>
+                <span class="top-bar-item">
+                    <i class="fas fa-envelope"></i> <a href="mailto:mwikimodern@gmail.com">mwikimodern@gmail.com</a>
+                </span>
+                <span class="top-bar-item highlight-badge">
+                    <i class="fas fa-clock"></i> Open 24 Hours Everyday
+                </span>
+            </div>
+            <div class="top-bar-right">
+                <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid0ELD2Qo3aEy22pJXHvu7yXRk7jHAVJNUQgduqdjvtWEiBJrbbPbLj1mifrmDajjH2l&id=100057780334661" target="_blank" class="top-social-icon" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/explore/locations/1847337145300613/mwiki-modern-maternity-hospital/" target="_blank" class="top-social-icon" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="images/logo.png" alt="MWIKI Logo" class="logo-img">
-                <h2 class="logo-text">mwiki modern medical centre</h2>
+                <img src="/images/favicon.png" alt="MWIKI Modern Medical Centre" class="logo-img site-logo-float" width="40" height="40">
+                <h2 class="logo-text">MWIKI MODERN MEDICAL CENTRE</h2>
             </div>
+            
             <ul class="nav-menu">
                 <li class="nav-item">
-                    <a href="index.html" class="nav-link active">Home</a>
+                    <a href="./" class="nav-link active">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="services.html" class="nav-link">Services</a>
+                    <a href="services/" class="nav-link">Services</a>
                 </li>
                 <li class="nav-item">
-                    <a href="about.html" class="nav-link">About</a>
+                    <a href="departments/" class="nav-link">Departments</a>
                 </li>
                 <li class="nav-item">
-                    <a href="contact.html" class="nav-link">Contact Us</a>
+                    <a href="about/" class="nav-link">About</a>
                 </li>
                 <li class="nav-item">
-                    <a href="tel:+254748662082" class="nav-link cta-button">Book Appointment</a>
+                    <a href="contact/" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="tel:+254748662082" class="nav-link cta-button">Appointment</a>
                 </li>
             </ul>
+            
             <div class="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -40,44 +150,53 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
     <main>
-        <!-- Hero Section with H1 -->
-        <section class="hero">
-            <h1 class="glass-heading">Comprehensive Healthcare Solutions</h1>
-            <p class="hero-subtitle">Your Trusted Medical Partner for Quality Healthcare</p>
-            <a href="contact.html" class="appointment-btn">Schedule Your Appointment Now</a>
-        </section>
-
-        <!-- Slideshow Section -->
-        <section class="slideshow-section">
-            <div class="slideshow-container">
-                <div class="slide fade">
-                    <img src="images/w1.jpeg.jpeg" alt="MWIKI Modern Health Centre 1">
-                    <div class="slide-caption">Advanced Medical Services</div>
-                </div>
-                <div class="slide fade">
-                    <img src="images/w2.jpeg.jpeg" alt="MWIKI Modern Health Centre 2">
-                    <div class="slide-caption">Expert Healthcare Team</div>
-                </div>
-                <div class="slide fade">
-                    <img src="images/w3.jpeg.png" alt="MWIKI Modern Health Centre 3">
-                    <div class="slide-caption">Patient-Centered Care</div>
-                </div>
-
-                <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
-                <a class="next" onclick="changeSlide(1)">&#10095;</a>
+        <section class="hero-video-section">
+            <div class="video-bg-wrapper">
+                <video autoplay loop muted playsinline poster="/images/hero-fallback.jpg" class="hero-media-element desktop-only-video">
+                    <source src="/videos/hero-bg.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="hero-dark-overlay"></div>
             </div>
-            <div class="slide-dots">
-                <span class="dot" onclick="currentSlide(1)"></span>
-                <span class="dot" onclick="currentSlide(2)"></span>
-                <span class="dot" onclick="currentSlide(3)"></span>
+
+            <div class="hero-video-content">
+                <div class="hero-heading-box">
+                    <h1 class="glass-heading">MWIKI MODERN MEDICAL CENTRE</h1>
+                </div>
+                <p class="hero-subtitle">Your Trusted Medical Partner for Quality Healthcare</p>
+                <div class="hero-action-container">
+                    <button class="schedule-cta-btn" onclick="scrollToContact()">Schedule Your Appointment Now</button>
+                </div>
             </div>
         </section>
 
-        <!-- Sticky Sidebar with FAQ and Reviews -->
+       <section class="slideshow-section">
+    <div class="slideshow-container">
+        <div class="slide fade">
+            <img src="/images/1.png" alt="Quality Care">
+            <div class="slide-text"><h1>Excellence in Quality Care</h1></div>
+        </div>
+        <div class="slide fade">
+            <img src="/images/2.png" alt="24/7 Support">
+            <div class="slide-text"><h1>24/7 Professional Support</h1></div>
+        </div>
+        <div class="slide fade">
+            <img src="/images/3.png" alt="Experienced Staff">
+            <div class="slide-text"><h1>Experienced Medical Staff</h1></div>
+        </div>
+
+        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="next" onclick="changeSlide(1)">&#10095;</a>
+    </div>
+    <div class="slide-dots">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+</section>
+
         <div class="sticky-container">
-            <!-- FAQ Section -->
             <section class="sticky-section faq-section" id="faq">
                 <h2 class="glass-heading-h2">Frequently Asked Questions</h2>
                 <div class="faq-content">
@@ -87,7 +206,7 @@
                             <span class="toggle-icon">+</span>
                         </button>
                         <div class="faq-answer">
-                            <p>We are open Monday to Friday from 8:00 AM to 6:00 PM, and Saturday from 9:00 AM to 3:00 PM. Sunday by appointment only.</p>
+                            <p>Open 24/7 — Round-the-Clock Compassionate Medical Care</p>
                         </div>
                     </div>
 
@@ -123,7 +242,6 @@
                 </div>
             </section>
 
-            <!-- Reviews Section -->
             <section class="sticky-section reviews-section" id="reviews">
                 <h2 class="glass-heading-h2">Patient Reviews</h2>
                 <div class="reviews-content">
@@ -186,12 +304,10 @@
             </section>
         </div>
 
-        <!-- WhatsApp CTA Button -->
         <a href="https://wa.me/254748662082?text=Hello%20MWIKI%20Modern%20Health%20Centre%2C%20I%20would%20like%20to%20inquire%20about%20your%20services" target="_blank" class="whatsapp-btn" title="Chat with us on WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
 
-        <!-- Quick Info Section -->
         <section class="quick-info">
             <div class="info-card">
                 <i class="fas fa-phone"></i>
@@ -211,25 +327,28 @@
             <div class="info-card">
                 <i class="fas fa-clock"></i>
                 <h3>Hours</h3>
-                <p>Mon-Fri: 8AM - 6PM<br>Sat: 9AM - 3PM</p>
+                <p>24 Hours<br>Open 24/7</p>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
-            <div class="footer-section">
-                <h4>MWIKI Modern Health Centre</h4>
+            <div class="footer-section footer-brand">
+                <div class="footer-brand-inner">
+                    <img src="/images/favicon.png" alt="MWIKI Modern Medical Centre" class="footer-logo site-logo-float" width="48" height="48">
+                    <h4>MWIKI MODERN MEDICAL CENTRE</h4>
+                </div>
                 <p>Providing quality healthcare services to the community.</p>
             </div>
             <div class="footer-section">
                 <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="./">Home</a></li>
+                    <li><a href="services/">Services</a></li>
+                    <li><a href="departments/">Departments</a></li>
+                    <li><a href="about/">About</a></li>
+                    <li><a href="contact/">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -247,10 +366,43 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 MWIKI Modern Health Centre. All rights reserved.</p>
+            <p>&copy; 2026 MWIKI Modern Medical Centre. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="/script.js"></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MedicalClinic",
+        "name": "MWIKI Modern Medical Centre",
+        "image": "/images/favicon.png",
+        "telephone": "+254748662082",
+        "email": "mwikimodern@gmail.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "6 Red Soil St",
+            "addressLocality": "Nairobi",
+            "addressCountry": "KE"
+        },
+        "medicalSpecialty": ["GeneralPractice", "Obstetric", "Surgery"]
+    }
+    </script>
+    
+    <div id="cookie-banner" class="cookie-container">
+        <div class="cookie-content">
+            <p>We use cookies to ensure you get the best experience on our medical portal. By continuing to visit our site, you agree to our use of cookies.</p>
+            <button id="accept-cookies" class="cookie-btn">Accept & Close</button>
+        </div>
+    </div>
+
+    <div class="scroll-controls">
+        <button id="scrollUpBtn" class="scroll-ctrl-btn" title="Scroll to Top" onclick="scrollToTop()">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+        <button id="scrollDownBtn" class="scroll-ctrl-btn" title="Scroll to Bottom" onclick="scrollToBottom()">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+    </div>
 </body>
 </html>
