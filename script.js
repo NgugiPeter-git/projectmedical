@@ -29,6 +29,9 @@ document.addEventListener('DOMContentLoaded', function() {
     setupCookieBanner();
     setupAmbientBackground();
     setupScrollAnimations();
+    loadManagedContent().catch(error => {
+        console.error('Unable to load editable site content:', error);
+    });
 });
 
 // Reset viewport position instantly on full layout load
@@ -215,6 +218,292 @@ function setupFAQToggle() {
             });
         });
     });
+}
+
+async function loadManagedContent() {
+    const [site, home, services, departments, about] = await Promise.all([
+        fetchManagedContent('/content/site.json'),
+        fetchManagedContent('/content/home.json'),
+        fetchManagedContent('/content/services.json'),
+        fetchManagedContent('/content/departments.json'),
+        fetchManagedContent('/content/about.json')
+    ]);
+
+    renderSiteSettings(site);
+    renderHomeContent(home);
+    renderServicesContent(services);
+    renderDepartmentsContent(departments);
+    renderAboutContent(about);
+}
+
+async function fetchManagedContent(path) {
+    const response = await fetch(path);
+    if (!response.ok) {
+        throw new Error(`Request for ${path} failed with HTTP ${response.status}`);
+    }
+    return response.json();
+}
+
+function setText(element, value) {
+    if (element && typeof value === 'string') {
+        element.textContent = value;
+    }
+}
+
+function makeElement(tagName, className, text) {
+    const element = document.createElement(tagName);
+    if (className) element.className = className;
+    if (typeof text === 'string') element.textContent = text;
+    return element;
+}
+
+function renderSiteSettings(site) {
+    document.querySelectorAll('.logo-text, .footer-brand-inner h4').forEach(element => {
+        setText(element, site.name);
+    });
+    document.querySelectorAll('.site-logo-float').forEach(image => {
+        image.alt = site.name;
+    });
+
+    document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+        link.href = `tel:${site.phone_link}`;
+        setText(link, site.phone);
+    });
+    document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+        link.href = `mailto:${site.email}`;
+        setText(link, site.email);
+    });
+    document.querySelectorAll('a[href^="https://wa.me/"]').forEach(link => {
+        const existingUrl = new URL(link.href);
+        link.href = `https://wa.me/${site.whatsapp_number}${existingUrl.search}`;
+    });
+
+    const topBarItems = document.querySelectorAll('.top-bar-left .top-bar-item');
+    if (topBarItems[0]) {
+        topBarItems[0].childNodes.forEach(node => {
+            if (node.nodeType === Node.TEXT_NODE) node.remove();
+        });
+        topBarItems[0].append(document.createTextNode(` ${site.address}`));
+    }
+    if (topBarItems[3]) {
+        topBarItems[3].childNodes.forEach(node => {
+            if (node.nodeType === Node.TEXT_NODE) node.remove();
+        });
+        topBarItems[3].append(document.createTextNode(` ${site.opening_hours}`));
+    }
+
+    const homeInfoCards = document.querySelectorAll('.quick-info .info-card');
+    setText(homeInfoCards[2]?.querySelector('p'), site.address);
+    const hoursCard = homeInfoCards[3]?.querySelector('p');
+    if (hoursCard) hoursCard.textContent = site.opening_hours;
+
+    document.querySelectorAll('.contact-card').forEach(card => {
+        const heading = card.querySelector('h3')?.textContent.trim();
+        if (heading === 'Address') {
+            const address = card.querySelector('p:not(.contact-desc)');
+            setText(address, site.address);
+        }
+    });
+    document.querySelectorAll('.footer-section p').forEach(paragraph => {
+        if (paragraph.textContent.includes('Red Soil St')) setText(paragraph, `Address: ${site.address}`);
+    });
+    document.querySelectorAll('.footer-brand > p').forEach(paragraph => {
+        setText(paragraph, site.footer_blurb);
+    });
+
+    document.querySelectorAll('.top-social-icon[title="Facebook"], .social-links a').forEach(link => {
+        if (link.textContent.includes('Facebook') || link.title === 'Facebook') {
+            link.href = site.facebook_url;
+        }
+        if (link.textContent.includes('Instagram') || link.title === 'Instagram') {
+            link.href = site.instagram_url;
+        }
+    });
+}
+
+function renderHomeContent(home) {
+    setText(document.querySelector('.hero-video-content .glass-heading'), home.hero_title);
+    setText(document.querySelector('.hero-subtitle'), home.hero_subtitle);
+    const appointmentButton = document.querySelector('.schedule-cta-btn');
+    setText(appointmentButton, home.cta_text);
+    if (appointmentButton && typeof home.cta_link === 'string') {
+        appointmentButton.onclick = function() {
+            if (home.cta_link.startsWith('#')) {
+                document.querySelector(home.cta_link)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else {
+                window.location.href = home.cta_link;
+            }
+        };
+    }
+    setText(document.querySelector('#faq h2'), home.faq_title);
+    setText(document.querySelector('#reviews h2'), home.reviews_title);
+
+    const slideContainer = document.querySelector('.slideshow-container');
+    const dotContainer = document.querySelector('.slide-dots');
+    if (slideContainer && Array.isArray(home.slides)) {
+        slideContainer.querySelectorAll('.slide').forEach(slide => slide.remove());
+        home.slides.forEach(slide => {
+            const card = makeElement('div', 'slide');
+            const image = makeElement('img');
+            image.src = slide.image;
+            image.alt = slide.alt;
+            const caption = makeElement('div', 'slide-text');
+            caption.append(makeElement('h1', '', slide.title));
+            card.append(image, caption);
+            slideContainer.insertBefore(card, slideContainer.querySelector('.prev'));
+        });
+        if (dotContainer && Array.isArray(home.slides)) {
+            dotContainer.replaceChildren(...home.slides.map((slide, index) => {
+                const dot = makeElement('span', 'dot');
+                dot.addEventListener('click', () => currentSlide(index + 1));
+                return dot;
+            }));
+        }
+        showSlide(1);
+    }
+
+    const faqContainer = document.querySelector('.faq-content');
+    if (faqContainer && Array.isArray(home.faqs)) {
+        faqContainer.replaceChildren(...home.faqs.map(item => {
+            const faq = makeElement('div', 'faq-item');
+            const button = makeElement('button', 'faq-toggle', item.question);
+            button.append(makeElement('span', 'toggle-icon', '+'));
+            const answer = makeElement('div', 'faq-answer');
+            answer.append(makeElement('p', '', item.answer));
+            faq.append(button, answer);
+            return faq;
+        }));
+        setupFAQToggle();
+    }
+
+    const reviewContainer = document.querySelector('.reviews-content');
+    if (reviewContainer && Array.isArray(home.testimonials)) {
+        reviewContainer.replaceChildren(...home.testimonials.map(review => {
+            const item = makeElement('div', 'review-item');
+            const header = makeElement('div', 'review-header');
+            const stars = makeElement('div', 'review-stars');
+            const rating = Math.max(1, Math.min(5, Number(review.rating) || 1));
+            for (let index = 0; index < rating; index++) {
+                stars.append(makeElement('i', 'fas fa-star'));
+            }
+            header.append(stars, makeElement('span', 'review-author', review.name));
+            item.append(header, makeElement('p', 'review-text', `"${review.quote}"`));
+            return item;
+        }));
+    }
+}
+
+function renderServicesContent(content) {
+    const grid = document.querySelector('body > main .services-grid');
+    if (grid && document.querySelector('.page-header') && Array.isArray(content.items)) {
+        setText(document.querySelector('.page-header h1'), content.page_title);
+        setText(document.querySelector('.page-header p'), content.page_subtitle);
+        grid.replaceChildren(...content.items.map(service => {
+            const card = makeElement('div', 'service-card');
+            card.append(makeElement('i', service.icon));
+            const heading = makeElement('h2', 'glass-heading-h2', service.title);
+            const description = makeElement('p', '', service.description);
+            const link = makeElement('a', 'book-btn', 'Learn More');
+            link.href = `/contact/?service=${encodeURIComponent(service.slug)}`;
+            link.target = '_self';
+            link.rel = 'noopener noreferrer';
+            card.append(heading, description, link);
+            return card;
+        }));
+        const cta = document.querySelector('.cta-section');
+        setText(cta?.querySelector('h2'), content.cta_title);
+        setText(cta?.querySelector('p'), content.cta_text);
+    }
+
+    const serviceSelect = document.querySelector('#service');
+    if (serviceSelect && Array.isArray(content.items)) {
+        const firstOption = serviceSelect.options[0];
+        serviceSelect.replaceChildren(firstOption);
+        content.items.forEach(service => {
+            const option = makeElement('option', '', service.title);
+            option.value = service.slug;
+            serviceSelect.append(option);
+        });
+    }
+}
+
+function renderDepartmentsContent(content) {
+    const main = document.querySelector('main.departments-section');
+    const grid = main?.querySelector('.services-grid');
+    if (!grid || !Array.isArray(content.items)) return;
+
+    setText(main.querySelector('.page-header h1'), content.page_title);
+    setText(main.querySelector('.page-header p'), content.page_subtitle);
+    grid.replaceChildren(...content.items.map(department => {
+        const card = makeElement('div', 'service-card');
+        card.append(
+            makeElement('i', department.icon),
+            makeElement('h3', '', department.title),
+            makeElement('p', '', department.description)
+        );
+        return card;
+    }));
+}
+
+function renderAboutContent(content) {
+    const pageHeader = document.querySelector('main .page-header');
+    if (!pageHeader || !document.querySelector('.elementor-about')) return;
+
+    setText(pageHeader.querySelector('h1'), content.page_title);
+    setText(pageHeader.querySelector('p'), content.page_subtitle);
+    setText(document.querySelector('.elementor-about .elementor-heading-secondary'), content.intro_heading);
+    const intro = document.querySelector('.elementor-about .elementor-row .elementor-column');
+    const introParagraphs = intro?.querySelectorAll('p');
+    if (intro && Array.isArray(content.intro_paragraphs)) {
+        introParagraphs.forEach(paragraph => paragraph.remove());
+        content.intro_paragraphs.forEach(text => {
+            intro.append(makeElement('p', '', text));
+        });
+    }
+
+    const mvvCards = document.querySelectorAll('.elementor-mvv .elementor-card');
+    setText(mvvCards[0]?.querySelector('p'), content.mission);
+    setText(mvvCards[1]?.querySelector('p'), content.vision);
+    const values = mvvCards[2]?.querySelector('p');
+    if (values) {
+        const valueLines = content.values.split('\n');
+        values.replaceChildren(...valueLines.flatMap((line, index) => {
+            const nodes = [document.createTextNode(line)];
+            if (index < valueLines.length - 1) nodes.push(document.createElement('br'));
+            return nodes;
+        }));
+    }
+
+    setText(document.querySelector('.elementor-features .elementor-heading-secondary'), content.features_title);
+    const featureRow = document.querySelector('.elementor-features .elementor-row');
+    if (featureRow && Array.isArray(content.features)) {
+        featureRow.replaceChildren(...content.features.map(feature => {
+            const card = makeElement('div', 'elementor-feature');
+            card.append(makeElement('i', feature.icon), makeElement('h4', '', feature.title), makeElement('p', '', feature.description));
+            return card;
+        }));
+    }
+
+    setText(document.querySelector('.elementor-team .elementor-heading-secondary'), content.team_title);
+    setText(document.querySelector('.elementor-team .elementor-subtitle'), content.team_subtitle);
+    const teamRow = document.querySelector('.elementor-team .elementor-row');
+    if (teamRow && Array.isArray(content.team)) {
+        teamRow.replaceChildren(...content.team.map(member => {
+            const card = makeElement('div', 'elementor-team-member');
+            const avatar = makeElement('div', 'member-avatar');
+            avatar.append(makeElement('i', member.icon));
+            card.append(
+                avatar,
+                makeElement('h4', '', member.name),
+                makeElement('p', 'member-title', member.title),
+                makeElement('p', 'member-bio', member.bio)
+            );
+            return card;
+        }));
+    }
+    const cta = document.querySelector('.elementor-cta');
+    setText(cta?.querySelector('h2'), content.cta_title);
+    setText(cta?.querySelector('p'), content.cta_text);
 }
 
 function setupHamburger() {

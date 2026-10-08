@@ -156,6 +156,21 @@ a {
     box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
 }
 
+.nav-link.admin-login-button {
+    display: inline-block;
+    padding: 0.7rem 1.25rem;
+    border-radius: 6px;
+    background-color: #292929;
+    color: white;
+    font-weight: 600;
+}
+
+.nav-link.admin-login-button:hover,
+.nav-link.admin-login-button:focus-visible {
+    background-color: #111;
+    color: white;
+}
+
 .hamburger {
     display: none;
     flex-direction: column;

@@ -68,6 +68,17 @@ SITE1/
 5. **FAQ** - Expand FAQ items on the home page to get answers to common questions
 6. **Reviews** - Check patient reviews on the home page
 
+## Editing Website Content
+
+Open `/admin/` and sign in through DecapBridge. The editor provides sections for
+site contact details, the home page, services, departments, and the about page.
+Existing content is preloaded in the editor. Save changes and publish them in
+Decap CMS for the public pages to update.
+
+The editable data lives in `content/` as JSON files. The public site reads these
+files on each page load, so changes to that content are reflected across the
+matching pages after they are published.
+
 ## Customization
 
 ### Add Logo

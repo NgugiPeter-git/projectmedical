@@ -1,0 +1,75 @@
+{
+  "page_title": "About Us",
+  "page_subtitle": "Compassionate care, available 24/7",
+  "intro_heading": "Compassionate care, available 24/7",
+  "intro_paragraphs": [
+    "MWIKI Modern Medical Centre brings together experienced clinicians, modern facilities, and a patient-first approach to deliver trusted medical care for individuals and families.",
+    "From routine checkups to urgent support, our team is committed to providing responsive care in a welcoming environment."
+  ],
+  "mission": "To provide accessible, affordable, and high-quality healthcare services that improve the health and well-being of individuals and communities we serve.",
+  "vision": "To be the leading healthcare provider in the region, known for excellence, innovation, and patient-centered care.",
+  "values": "Integrity: We conduct our business with honesty and transparency.\nExcellence: We maintain high standards in all aspects.\nCompassion: We care for our patients and community.",
+  "features_title": "Why Choose MWIKI Modern Health Centre?",
+  "features": [
+    {
+      "title": "Expert Medical Team",
+      "description": "Our doctors and healthcare professionals have years of experience and are committed to providing the best care.",
+      "icon": "fas fa-user-md"
+    },
+    {
+      "title": "Modern Facilities",
+      "description": "We invest in the latest medical technology to ensure accurate diagnosis and effective treatment.",
+      "icon": "fas fa-hospital"
+    },
+    {
+      "title": "Convenient Hours",
+      "description": "We offer extended hours to accommodate your schedule and ensure you get care when you need it.",
+      "icon": "fas fa-clock"
+    },
+    {
+      "title": "Patient-Centered Care",
+      "description": "Your comfort and satisfaction are our top priorities. We treat every patient with respect and dignity.",
+      "icon": "fas fa-smile"
+    },
+    {
+      "title": "Confidentiality",
+      "description": "Your medical information is secure and protected in accordance with privacy regulations.",
+      "icon": "fas fa-shield-alt"
+    },
+    {
+      "title": "Community Focused",
+      "description": "We are committed to serving the health and wellness needs of our community.",
+      "icon": "fas fa-handshake"
+    }
+  ],
+  "team_title": "Our Healthcare Team",
+  "team_subtitle": "Our dedicated team of healthcare professionals is here to serve you",
+  "team": [
+    {
+      "name": "Dr. Charles Oyaro",
+      "title": "Proprietor/Chief Officer",
+      "bio": "With over 15 years of experience in general medicine and healthcare administration.",
+      "icon": "fas fa-user-doctor"
+    },
+    {
+      "name": "Nurse Regina",
+      "title": "Head Nurse",
+      "bio": "Experienced nursing professional dedicated to patient care and comfort.",
+      "icon": "fas fa-user-nurse"
+    },
+    {
+      "name": "Dr. Sarah Mwangi",
+      "title": "Pediatrician",
+      "bio": "Specialist in child health with expertise in pediatric care and development.",
+      "icon": "fas fa-user-doctor"
+    },
+    {
+      "name": "Pharmacist David Ochieng",
+      "title": "Lead Pharmacist",
+      "bio": "Knowledgeable pharmacist providing professional medication consultation.",
+      "icon": "fas fa-user-nurse"
+    }
+  ],
+  "cta_title": "Let Us Care For You",
+  "cta_text": "Experience quality healthcare with MWIKI Modern Health Centre"
+}

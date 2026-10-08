@@ -6,54 +6,56 @@
     <meta name="robots" content="noindex, nofollow">
     <title>MWIKI MODERN Admin | Decap CMS</title>
     <style>
-      :root {
-        color-scheme: light;
-        font-family: Inter, Arial, sans-serif;
-        background: #f3f7fb;
-        color: #17324d;
-      }
-      * { box-sizing: border-box; }
       body {
-        min-height: 100vh;
         margin: 0;
+        min-height: 100vh;
         display: grid;
         place-items: center;
-        background:
-          radial-gradient(circle at top left, rgba(0, 120, 212, 0.12), transparent 35%),
-          #f3f7fb;
+        font-family: Arial, sans-serif;
+        background: #f5f9ff;
+        color: #123;
       }
-      main {
-        width: min(100%, 520px);
-        padding: 2.5rem;
-        border-radius: 18px;
-        background: #fff;
-        box-shadow: 0 24px 60px rgba(23, 50, 77, 0.12);
+      .loader {
         text-align: center;
+        padding: 2rem 2.5rem;
+        border-radius: 18px;
+        background: white;
+        box-shadow: 0 12px 36px rgba(17, 48, 81, 0.12);
       }
-      .logo {
-        width: 64px;
-        height: 64px;
-        margin-bottom: 1rem;
-        border-radius: 16px;
+      .loader img {
+        display: block;
+        width: 56px;
+        height: 56px;
+        margin: 0 auto 1rem auto;
       }
-      h1 { margin: 0 0 0.5rem; font-size: 1.6rem; }
-      p { margin: 0; color: #52677a; line-height: 1.6; }
-      .loading { margin-top: 2rem; color: #0078d4; font-weight: 700; }
+      .loader strong {
+        display: block;
+        margin-bottom: 0.5rem;
+      }
     </style>
   </head>
   <body>
-    <main>
-      <img class="logo" src="/images/favicon.png" alt="MWIKI Modern Medical Centre" width="64" height="64">
-      <h1>MWIKI Content Dashboard</h1>
-      <p>Loading the Decap CMS editor...</p>
-      <div class="loading" aria-live="polite">Please wait</div>
-    </main>
+    <div id="decap-loading" class="loader">
+      <img src="/images/favicon.png" alt="Loading">
+      <strong>Loading Decap CMS admin...</strong>
+      <span>Please wait while the editor connects to DecapBridge.</span>
+    </div>
 
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
     <script>
       window.CMS_MANUAL_INIT = true;
-      window.addEventListener("load", function () {
-        window.CMS.init();
+    </script>
+    <script src="https://unpkg.com/decap-cms@3.16.3/dist/decap-cms.js"></script>
+    <script>
+      window.addEventListener('DOMContentLoaded', function () {
+        const loader = document.getElementById('decap-loading');
+        if (window.CMS) {
+          window.CMS.init();
+          if (loader) {
+            loader.querySelector('span').textContent = 'Decap CMS is ready. Sign in to continue.';
+          }
+        } else if (loader) {
+          loader.querySelector('span').textContent = 'Decap CMS failed to load. Check the internet connection and DecapBridge settings.';
+        }
       });
     </script>
   </body>

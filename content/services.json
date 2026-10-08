@@ -1,0 +1,62 @@
+{
+  "page_title": "Our Services",
+  "page_subtitle": "Comprehensive Healthcare Solutions for You and Your Family",
+  "cta_title": "Ready to Book Your Appointment?",
+  "cta_text": "Contact us today to schedule your visit",
+  "items": [
+    {
+      "title": "General Consultation",
+      "description": "Professional medical consultations with experienced doctors for all your health concerns. We provide comprehensive health assessments and personalized treatment plans.",
+      "icon": "fas fa-stethoscope",
+      "slug": "general-consultation"
+    },
+    {
+      "title": "Cardiac Care",
+      "description": "Specialized cardiac services including heart disease prevention, management, and treatment. Our team provides state-of-the-art cardiac care.",
+      "icon": "fas fa-heart",
+      "slug": "cardiac-care"
+    },
+    {
+      "title": "Pharmacy Services",
+      "description": "On-site pharmacy with a wide range of medications and pharmaceutical products. Professional pharmacists available for medication counseling.",
+      "icon": "fas fa-pills",
+      "slug": "pharmacy-services"
+    },
+    {
+      "title": "Maternity & Child Health",
+      "description": "Complete maternal care, prenatal and postnatal services, and pediatric care. We ensure the best health for mothers and babies.",
+      "icon": "fas fa-baby",
+      "slug": "maternity-child-health"
+    },
+    {
+      "title": "Respiratory Health",
+      "description": "Diagnosis and treatment of respiratory conditions including asthma, COPD, and other lung diseases. Advanced respiratory care services available.",
+      "icon": "fas fa-lungs",
+      "slug": "respiratory-health"
+    },
+    {
+      "title": "Laboratory Services",
+      "description": "State-of-the-art laboratory testing including blood tests, pathology, and diagnostic testing. Quick and accurate results.",
+      "icon": "fas fa-microscope",
+      "slug": "laboratory-services"
+    },
+    {
+      "title": "Imaging & Radiology",
+      "description": "Modern imaging services including X-rays, ultrasound, and other diagnostic imaging. Expert radiologists for accurate diagnosis.",
+      "icon": "fas fa-x-ray",
+      "slug": "imaging-radiology"
+    },
+    {
+      "title": "Dental Services",
+      "description": "Comprehensive dental care including cleanings, fillings, extractions, and cosmetic dentistry. Professional dental hygienists available.",
+      "icon": "fas fa-tooth",
+      "slug": "dental-services"
+    },
+    {
+      "title": "Eye Care",
+      "description": "Complete optometry services including eye examinations and prescription eyewear. We help maintain your vision health.",
+      "icon": "fas fa-eye",
+      "slug": "eye-care"
+    }
+  ]
+}

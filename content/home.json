@@ -1,0 +1,65 @@
+{
+  "hero_title": "MWIKI MODERN MEDICAL CENTRE",
+  "hero_subtitle": "Your Trusted Medical Partner for Quality Healthcare",
+  "cta_text": "Schedule Your Appointment Now",
+  "cta_link": "contact/",
+  "slides": [
+    {
+      "title": "Excellence in Quality Care",
+      "image": "/images/1.png",
+      "alt": "Quality Care"
+    },
+    {
+      "title": "24/7 Professional Support",
+      "image": "/images/2.png",
+      "alt": "24/7 Support"
+    },
+    {
+      "title": "Experienced Medical Staff",
+      "image": "/images/3.png",
+      "alt": "Experienced Staff"
+    }
+  ],
+  "faq_title": "Frequently Asked Questions",
+  "faqs": [
+    {
+      "question": "What are your operating hours?",
+      "answer": "Open 24/7 — Round-the-Clock Compassionate Medical Care"
+    },
+    {
+      "question": "Do I need an appointment?",
+      "answer": "While appointments are recommended, we also accept walk-in patients. However, appointments ensure minimal waiting time."
+    },
+    {
+      "question": "What insurance do you accept?",
+      "answer": "We accept most major insurance providers. Please contact us for specific details about your insurance plan."
+    },
+    {
+      "question": "How do I book an appointment?",
+      "answer": "You can book an appointment through our website, call us at +254 748 662082, or send an email to mwikimodern@gmail.com."
+    }
+  ],
+  "reviews_title": "Patient Reviews",
+  "testimonials": [
+    {
+      "name": "John Kariuki",
+      "quote": "Excellent service! The doctors are professional and the staff is very friendly. I felt well taken care of.",
+      "rating": 5
+    },
+    {
+      "name": "Mary Wanjiru",
+      "quote": "Clean facilities and fast service. Highly recommend MWIKI Modern Health Centre to anyone looking for quality healthcare.",
+      "rating": 5
+    },
+    {
+      "name": "David Ochieng",
+      "quote": "Great experience from start to finish. The medical team is knowledgeable and provides excellent care.",
+      "rating": 5
+    },
+    {
+      "name": "Susan Kamau",
+      "quote": "Professional staff and modern equipment. I always feel confident visiting MWIKI Modern Health Centre.",
+      "rating": 5
+    }
+  ]
+}

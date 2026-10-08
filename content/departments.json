@@ -1,0 +1,31 @@
+{
+  "page_title": "Our Departments",
+  "page_subtitle": "Specialized Medical Departments for Comprehensive Healthcare",
+  "items": [
+    {
+      "title": "OUTPATIENT",
+      "description": "Comprehensive outpatient services for diagnosis, treatment, and follow-up care. Our experienced medical team provides personalized healthcare solutions.",
+      "icon": "fas fa-stethoscope"
+    },
+    {
+      "title": "MCH AND FAMILY PLANNING",
+      "description": "Maternal and Child Health services combined with family planning counseling. We support families through all stages of life with expert care.",
+      "icon": "fas fa-baby"
+    },
+    {
+      "title": "MEDICAL SURGICAL",
+      "description": "Advanced medical and surgical interventions for various conditions. Our surgical team uses state-of-the-art technology for optimal patient outcomes.",
+      "icon": "fas fa-user-md"
+    },
+    {
+      "title": "OPERATING THEATRE",
+      "description": "Modern operating facilities equipped with the latest surgical technology. Our skilled surgeons perform a wide range of procedures with precision and care.",
+      "icon": "fas fa-hospital-user"
+    },
+    {
+      "title": "MATERNITY",
+      "description": "Dedicated maternity services for expectant mothers and newborns. We provide comprehensive prenatal, delivery, and postnatal care in a supportive environment.",
+      "icon": "fas fa-female"
+    }
+  ]
+}

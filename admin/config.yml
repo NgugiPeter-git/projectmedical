@@ -1,16 +1,25 @@
 backend:
-  name: github
-  repo: ngugipeter-git/projectmedical
+  name: git-gateway
+  repo: NgugiPeter-git/projectmedical
   branch: main
+  identity_url: https://auth.decapbridge.com/sites/33d71ef7-f849-48ab-b5c0-aa8e0f9687f7
+  gateway_url: https://gateway.decapbridge.com
+  commit_messages:
+    create: Create {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    update: Update {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    delete: Delete {{collection}} “{{slug}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    uploadMedia: Upload “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    deleteMedia: Delete “{{path}}” - {{author-name}} <{{author-login}}> via DecapBridge
+    openAuthoring: Message {{message}} - {{author-name}} <{{author-login}}> via DecapBridge
 
 local_backend: false
 publish_mode: editorial_workflow
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
 show_preview_links: false
-
 site_url: https://mwikimodernmedicalcentre.co.ke
 display_url: https://mwikimodernmedicalcentre.co.ke
+logo_url: https://decapbridge.com/decapcms-with-bridge.svg
 
 collections:
   - name: "site_settings"
@@ -20,93 +29,145 @@ collections:
       preview: false
     files:
       - file: "content/site.json"
-        label: "Site Settings"
+        label: "Contact & Branding"
         name: "site"
-        description: "Update the public contact details, opening hours, and social links."
         fields:
           - { label: "Site Name", name: "name", widget: "string", required: true }
-          - { label: "Tagline", name: "tagline", widget: "string", required: true }
-          - { label: "Phone", name: "phone", widget: "string", required: true }
-          - { label: "Phone Link", name: "phone_link", widget: "string", required: true }
+          - { label: "Phone Number", name: "phone", widget: "string", required: true }
+          - { label: "Phone Link (international format)", name: "phone_link", widget: "string", required: true }
           - { label: "Email", name: "email", widget: "string", required: true }
           - { label: "Address", name: "address", widget: "string", required: true }
           - { label: "Opening Hours", name: "opening_hours", widget: "string", required: true }
+          - { label: "WhatsApp Number (digits only, country code first)", name: "whatsapp_number", widget: "string", required: true }
           - { label: "Facebook URL", name: "facebook_url", widget: "string", required: false }
           - { label: "Instagram URL", name: "instagram_url", widget: "string", required: false }
-          - { label: "WhatsApp Number", name: "whatsapp_number", widget: "string", required: false }
+          - { label: "Footer Description", name: "footer_blurb", widget: "text", required: true }
 
   - name: "home"
     label: "Home Page"
-    folder: "content/home"
-    create: false
     delete: false
-    slug: "{{slug}}"
     editor:
       preview: false
-    fields:
-      - { label: "Hero Title", name: "title", widget: "string", required: true }
-      - { label: "Hero Subtitle", name: "subtitle", widget: "text", required: true }
-      - { label: "Hero Image", name: "hero_image", widget: "image", required: false }
-      - { label: "Hero Image Alt Text", name: "hero_image_alt", widget: "string", required: false }
-      - { label: "Call to Action Text", name: "cta_text", widget: "string", required: true }
-      - { label: "Call to Action Link", name: "cta_link", widget: "string", required: true }
+    files:
+      - file: "content/home.json"
+        label: "Home Page Content"
+        name: "home"
+        fields:
+          - { label: "Hero Heading", name: "hero_title", widget: "string", required: true }
+          - { label: "Hero Subtitle", name: "hero_subtitle", widget: "text", required: true }
+          - { label: "Appointment Button Text", name: "cta_text", widget: "string", required: true }
+          - { label: "Appointment Button Link", name: "cta_link", widget: "string", required: true }
+          - label: "Slideshow"
+            name: "slides"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Caption", name: "title", widget: "string", required: true }
+              - { label: "Image", name: "image", widget: "image", required: true }
+              - { label: "Image Description", name: "alt", widget: "string", required: true }
+          - { label: "FAQ Section Heading", name: "faq_title", widget: "string", required: true }
+          - label: "Frequently Asked Questions"
+            name: "faqs"
+            widget: "list"
+            summary: "{{fields.question}}"
+            fields:
+              - { label: "Question", name: "question", widget: "string", required: true }
+              - { label: "Answer", name: "answer", widget: "text", required: true }
+          - { label: "Reviews Section Heading", name: "reviews_title", widget: "string", required: true }
+          - label: "Patient Reviews"
+            name: "testimonials"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Patient Name", name: "name", widget: "string", required: true }
+              - { label: "Review", name: "quote", widget: "text", required: true }
+              - { label: "Rating (1–5)", name: "rating", widget: "number", value_type: "int", min: 1, max: 5, required: true }
 
   - name: "services"
     label: "Services"
-    folder: "content/services"
-    create: true
-    delete: true
-    slug: "{{slug}}"
-    summary: "{{title}}"
-    fields:
-      - { label: "Service Name", name: "title", widget: "string", required: true }
-      - { label: "Short Description", name: "description", widget: "text", required: true }
-      - { label: "Service Image", name: "image", widget: "image", required: false }
-      - { label: "Page Content", name: "body", widget: "markdown", required: false }
+    delete: false
+    editor:
+      preview: false
+    files:
+      - file: "content/services.json"
+        label: "Services Page"
+        name: "services"
+        fields:
+          - { label: "Page Heading", name: "page_title", widget: "string", required: true }
+          - { label: "Page Introduction", name: "page_subtitle", widget: "text", required: true }
+          - { label: "Appointment Section Heading", name: "cta_title", widget: "string", required: true }
+          - { label: "Appointment Section Text", name: "cta_text", widget: "text", required: true }
+          - label: "Services"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Service Name", name: "title", widget: "string", required: true }
+              - { label: "Description", name: "description", widget: "text", required: true }
+              - { label: "Icon CSS Classes", name: "icon", widget: "string", required: true }
+              - { label: "Contact Form Service ID", name: "slug", widget: "string", required: true }
 
   - name: "departments"
     label: "Departments"
-    folder: "content/departments"
-    create: true
-    delete: true
-    slug: "{{slug}}"
-    summary: "{{title}}"
-    fields:
-      - { label: "Department Name", name: "title", widget: "string", required: true }
-      - { label: "Short Description", name: "description", widget: "text", required: true }
-      - { label: "Department Image", name: "image", widget: "image", required: false }
-      - { label: "Page Content", name: "body", widget: "markdown", required: false }
+    delete: false
+    editor:
+      preview: false
+    files:
+      - file: "content/departments.json"
+        label: "Departments Page"
+        name: "departments"
+        fields:
+          - { label: "Page Heading", name: "page_title", widget: "string", required: true }
+          - { label: "Page Introduction", name: "page_subtitle", widget: "text", required: true }
+          - label: "Departments"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Department Name", name: "title", widget: "string", required: true }
+              - { label: "Description", name: "description", widget: "text", required: true }
+              - { label: "Icon CSS Classes", name: "icon", widget: "string", required: true }
 
-  - name: "faqs"
-    label: "Frequently Asked Questions"
-    folder: "content/faqs"
-    create: true
-    delete: true
-    slug: "{{slug}}"
-    summary: "{{question}}"
-    fields:
-      - { label: "Question", name: "question", widget: "string", required: true }
-      - { label: "Answer", name: "answer", widget: "text", required: true }
-
-  - name: "testimonials"
-    label: "Testimonials"
-    folder: "content/testimonials"
-    create: true
-    delete: true
-    slug: "{{slug}}"
-    summary: "{{name}}"
-    fields:
-      - { label: "Patient Name", name: "name", widget: "string", required: true }
-      - { label: "Testimonial", name: "quote", widget: "text", required: true }
-      - { label: "Rating", name: "rating", widget: "number", required: false, min: 1, max: 5 }
-
-  - name: "pages"
-    label: "Other Pages"
-    folder: "content/pages"
-    create: true
-    delete: true
-    slug: "{{slug}}"
-    summary: "{{title}}"
-    fields:
-      - { label: "Page Title", name: "title", widget: "string", required: true }
-      - { label: "Page Content", name: "body", widget: "markdown", required: true }
+  - name: "about"
+    label: "About Page"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - file: "content/about.json"
+        label: "About Page Content"
+        name: "about"
+        fields:
+          - { label: "Page Heading", name: "page_title", widget: "string", required: true }
+          - { label: "Page Subtitle", name: "page_subtitle", widget: "string", required: true }
+          - { label: "Introduction Heading", name: "intro_heading", widget: "string", required: true }
+          - label: "Introduction Paragraphs"
+            name: "intro_paragraphs"
+            widget: "list"
+            fields:
+              - { label: "Paragraph", name: "paragraph", widget: "text", required: true }
+          - { label: "Mission", name: "mission", widget: "text", required: true }
+          - { label: "Vision", name: "vision", widget: "text", required: true }
+          - { label: "Values", name: "values", widget: "text", required: true }
+          - { label: "Why Choose Us Heading", name: "features_title", widget: "string", required: true }
+          - label: "Reasons to Choose Us"
+            name: "features"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Title", name: "title", widget: "string", required: true }
+              - { label: "Description", name: "description", widget: "text", required: true }
+              - { label: "Icon CSS Classes", name: "icon", widget: "string", required: true }
+          - { label: "Team Section Heading", name: "team_title", widget: "string", required: true }
+          - { label: "Team Section Subtitle", name: "team_subtitle", widget: "text", required: true }
+          - label: "Team Members"
+            name: "team"
+            widget: "list"
+            summary: "{{fields.name}} — {{fields.title}}"
+            fields:
+              - { label: "Name", name: "name", widget: "string", required: true }
+              - { label: "Role", name: "title", widget: "string", required: true }
+              - { label: "Biography", name: "bio", widget: "text", required: true }
+              - { label: "Icon CSS Classes", name: "icon", widget: "string", required: true }
+          - { label: "Call to Action Heading", name: "cta_title", widget: "string", required: true }
+          - { label: "Call to Action Text", name: "cta_text", widget: "text", required: true }
