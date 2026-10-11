@@ -25,8 +25,6 @@ collections:
   - name: "site_settings"
     label: "Site Settings"
     delete: false
-    editor:
-      preview: false
     files:
       - file: "content/site.json"
         label: "Contact & Branding"
@@ -46,8 +44,6 @@ collections:
   - name: "home"
     label: "Home Page"
     delete: false
-    editor:
-      preview: false
     files:
       - file: "content/home.json"
         label: "Home Page Content"
@@ -68,7 +64,7 @@ collections:
           - { label: "FAQ Section Heading", name: "faq_title", widget: "string", required: true }
           - label: "Frequently Asked Questions"
             name: "faqs"
-            widget: "list"
+            widget: "visual-list"
             summary: "{{fields.question}}"
             fields:
               - { label: "Question", name: "question", widget: "string", required: true }
@@ -76,7 +72,7 @@ collections:
           - { label: "Reviews Section Heading", name: "reviews_title", widget: "string", required: true }
           - label: "Patient Reviews"
             name: "testimonials"
-            widget: "list"
+            widget: "visual-list"
             summary: "{{fields.name}}"
             fields:
               - { label: "Patient Name", name: "name", widget: "string", required: true }
@@ -86,8 +82,6 @@ collections:
   - name: "services"
     label: "Services"
     delete: false
-    editor:
-      preview: false
     files:
       - file: "content/services.json"
         label: "Services Page"
@@ -99,19 +93,30 @@ collections:
           - { label: "Appointment Section Text", name: "cta_text", widget: "text", required: true }
           - label: "Services"
             name: "items"
-            widget: "list"
+            widget: "visual-list"
             summary: "{{fields.title}}"
             fields:
               - { label: "Service Name", name: "title", widget: "string", required: true }
               - { label: "Description", name: "description", widget: "text", required: true }
-              - { label: "Icon CSS Classes", name: "icon", widget: "string", required: true }
+              - label: "Icon"
+                name: "icon"
+                widget: "select"
+                options:
+                  - { label: "Stethoscope", value: "fas fa-stethoscope" }
+                  - { label: "Heart", value: "fas fa-heart" }
+                  - { label: "Pills", value: "fas fa-pills" }
+                  - { label: "Baby", value: "fas fa-baby" }
+                  - { label: "Lungs", value: "fas fa-lungs" }
+                  - { label: "Microscope", value: "fas fa-microscope" }
+                  - { label: "Tooth", value: "fas fa-tooth" }
+                  - { label: "Eye", value: "fas fa-eye" }
+                  - { label: "Hospital", value: "fas fa-hospital" }
+                  - { label: "Doctor", value: "fas fa-user-md" }
               - { label: "Contact Form Service ID", name: "slug", widget: "string", required: true }
 
   - name: "departments"
     label: "Departments"
     delete: false
-    editor:
-      preview: false
     files:
       - file: "content/departments.json"
         label: "Departments Page"
@@ -121,18 +126,24 @@ collections:
           - { label: "Page Introduction", name: "page_subtitle", widget: "text", required: true }
           - label: "Departments"
             name: "items"
-            widget: "list"
+            widget: "visual-list"
             summary: "{{fields.title}}"
             fields:
               - { label: "Department Name", name: "title", widget: "string", required: true }
               - { label: "Description", name: "description", widget: "text", required: true }
-              - { label: "Icon CSS Classes", name: "icon", widget: "string", required: true }
+              - label: "Icon"
+                name: "icon"
+                widget: "select"
+                options:
+                  - { label: "Stethoscope", value: "fas fa-stethoscope" }
+                  - { label: "Heart", value: "fas fa-heart" }
+                  - { label: "Baby", value: "fas fa-baby" }
+                  - { label: "Hospital", value: "fas fa-hospital" }
+                  - { label: "Medical Staff", value: "fas fa-user-md" }
 
   - name: "about"
     label: "About Page"
     delete: false
-    editor:
-      preview: false
     files:
       - file: "content/about.json"
         label: "About Page Content"
@@ -144,30 +155,96 @@ collections:
           - label: "Introduction Paragraphs"
             name: "intro_paragraphs"
             widget: "list"
-            fields:
-              - { label: "Paragraph", name: "paragraph", widget: "text", required: true }
+            field: { label: "Paragraph", name: "paragraph", widget: "text", required: true }
           - { label: "Mission", name: "mission", widget: "text", required: true }
           - { label: "Vision", name: "vision", widget: "text", required: true }
           - { label: "Values", name: "values", widget: "text", required: true }
           - { label: "Why Choose Us Heading", name: "features_title", widget: "string", required: true }
           - label: "Reasons to Choose Us"
             name: "features"
-            widget: "list"
+            widget: "visual-list"
             summary: "{{fields.title}}"
             fields:
               - { label: "Title", name: "title", widget: "string", required: true }
               - { label: "Description", name: "description", widget: "text", required: true }
-              - { label: "Icon CSS Classes", name: "icon", widget: "string", required: true }
+              - label: "Icon"
+                name: "icon"
+                widget: "select"
+                options:
+                  - { label: "Doctor", value: "fas fa-user-md" }
+                  - { label: "Hospital", value: "fas fa-hospital" }
+                  - { label: "Clock", value: "fas fa-clock" }
+                  - { label: "Smile", value: "fas fa-smile" }
+                  - { label: "Shield", value: "fas fa-shield-alt" }
+                  - { label: "Handshake", value: "fas fa-handshake" }
           - { label: "Team Section Heading", name: "team_title", widget: "string", required: true }
           - { label: "Team Section Subtitle", name: "team_subtitle", widget: "text", required: true }
           - label: "Team Members"
             name: "team"
-            widget: "list"
+            widget: "visual-list"
             summary: "{{fields.name}} — {{fields.title}}"
             fields:
               - { label: "Name", name: "name", widget: "string", required: true }
               - { label: "Role", name: "title", widget: "string", required: true }
               - { label: "Biography", name: "bio", widget: "text", required: true }
-              - { label: "Icon CSS Classes", name: "icon", widget: "string", required: true }
+              - label: "Icon"
+                name: "icon"
+                widget: "select"
+                options:
+                  - { label: "Doctor", value: "fas fa-user-doctor" }
+                  - { label: "Nurse", value: "fas fa-user-nurse" }
+                  - { label: "Medical Staff", value: "fas fa-user-md" }
           - { label: "Call to Action Heading", name: "cta_title", widget: "string", required: true }
           - { label: "Call to Action Text", name: "cta_text", widget: "text", required: true }
+
+  - name: "contact"
+    label: "Contact Page"
+    delete: false
+    files:
+      - file: "content/contact.json"
+        label: "Contact Page Content"
+        name: "contact"
+        fields:
+          - { label: "Contact Section Heading", name: "contact_title", widget: "string", required: true }
+          - label: "Contact Cards"
+            name: "contact_cards"
+            widget: "visual-list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Heading", name: "title", widget: "string", required: true }
+              - label: "Icon"
+                name: "icon"
+                widget: "select"
+                options:
+                  - { label: "Phone", value: "fas fa-phone" }
+                  - { label: "Email", value: "fas fa-envelope" }
+                  - { label: "WhatsApp", value: "fab fa-whatsapp" }
+                  - { label: "Location", value: "fas fa-map-marker-alt" }
+                  - { label: "Clock", value: "fas fa-clock" }
+              - { label: "Displayed Details", name: "detail", widget: "string", required: true }
+              - { label: "Description", name: "description", widget: "string", required: true }
+              - { label: "Link URL", name: "href", widget: "string", required: false }
+          - { label: "Message Form Heading", name: "form_title", widget: "string", required: true }
+          - { label: "Send Button Text", name: "submit_text", widget: "string", required: true }
+          - { label: "Appointment Section Heading", name: "appointment_title", widget: "string", required: true }
+          - { label: "Appointment Section Text", name: "appointment_text", widget: "text", required: true }
+          - label: "Appointment Methods"
+            name: "appointment_methods"
+            widget: "visual-list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Heading", name: "title", widget: "string", required: true }
+              - label: "Icon"
+                name: "icon"
+                widget: "select"
+                options:
+                  - { label: "Phone", value: "fas fa-phone" }
+                  - { label: "Email", value: "fas fa-envelope" }
+                  - { label: "WhatsApp", value: "fab fa-whatsapp" }
+                  - { label: "Calendar", value: "fas fa-calendar-check" }
+              - { label: "Description", name: "description", widget: "text", required: true }
+              - { label: "Button Text", name: "button_text", widget: "string", required: true }
+              - { label: "Button URL", name: "href", widget: "string", required: true }
+          - { label: "Map Section Heading", name: "map_title", widget: "string", required: true }
+          - { label: "Map Section Text", name: "map_text", widget: "string", required: true }
+          - { label: "Google Maps Embed URL", name: "map_embed_url", widget: "string", required: true }

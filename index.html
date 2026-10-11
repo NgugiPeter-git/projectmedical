@@ -26,19 +26,7 @@
             to { opacity: 0; visibility: hidden; pointer-events: none; }
         }
 
-        /* 2. Nav Menu Congestion Fix: Adds breathing room between links */
-        .nav-menu {
-            display: flex !important;
-            align-items: center !important;
-            gap: 1.5rem !important; 
-        }
-        
-        /* 3. CTA Button Isolation: Pushes it away from the 'Contact' link */
-        .nav-link.cta-button {
-            margin-left: 0.5rem !important;
-        }
-
-        /* 4. Laptops and Wider Screens Layout Optimizations */
+        /* 2. Laptops and Wider Screens Layout Optimizations */
         @media (min-width: 769px) {
             .hero-video-section {
                 position: relative !important;
@@ -121,7 +109,7 @@
                 <h2 class="logo-text">MWIKI MODERN MEDICAL CENTRE</h2>
             </div>
             
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="site-navigation">
                 <li class="nav-item">
                     <a href="./" class="nav-link active">Home</a>
                 </li>
@@ -144,14 +132,29 @@
                     <a href="/admin/" class="nav-link admin-login-button">Admin Login</a>
                 </li>
             </ul>
+            <button class="admin-menu-toggle" type="button" aria-expanded="false" aria-controls="admin-side-menu">
+                <i class="fas fa-user-shield" aria-hidden="true"></i>
+                <span>Admin</span>
+            </button>
             
-            <div class="hamburger">
+            <button class="hamburger" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-navigation">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
-            </div>
+            </button>
         </div>
     </nav>
+    <button class="admin-menu-backdrop" type="button" aria-label="Close admin menu" hidden></button>
+    <aside class="admin-side-menu" id="admin-side-menu" aria-hidden="true" inert>
+        <div class="admin-side-menu-header">
+            <h2>Admin menu</h2>
+            <button class="admin-menu-close" type="button" aria-label="Close admin menu">&times;</button>
+        </div>
+        <a href="/admin/" class="admin-side-menu-link">
+            <i class="fas fa-right-to-bracket" aria-hidden="true"></i>
+            <span>Admin Login</span>
+        </a>
+    </aside>
 
     <main>
         <section class="hero-video-section">

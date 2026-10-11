@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
     autoSlide();
     setupFAQToggle();
     setupHamburger();
+    setupAdminSideMenu();
     setupActiveLinkTracker();
     setupCookieBanner();
     setupAmbientBackground();
@@ -221,12 +222,13 @@ function setupFAQToggle() {
 }
 
 async function loadManagedContent() {
-    const [site, home, services, departments, about] = await Promise.all([
+    const [site, home, services, departments, about, contact] = await Promise.all([
         fetchManagedContent('/content/site.json'),
         fetchManagedContent('/content/home.json'),
         fetchManagedContent('/content/services.json'),
         fetchManagedContent('/content/departments.json'),
-        fetchManagedContent('/content/about.json')
+        fetchManagedContent('/content/about.json'),
+        fetchManagedContent('/content/contact.json')
     ]);
 
     renderSiteSettings(site);
@@ -234,6 +236,7 @@ async function loadManagedContent() {
     renderServicesContent(services);
     renderDepartmentsContent(departments);
     renderAboutContent(about);
+    renderContactContent(contact);
 }
 
 async function fetchManagedContent(path) {
@@ -506,22 +509,143 @@ function renderAboutContent(content) {
     setText(cta?.querySelector('p'), content.cta_text);
 }
 
+function renderContactContent(content) {
+    const contactSection = document.querySelector('.contact-info-section');
+    if (!contactSection) return;
+
+    setText(contactSection.querySelector('h2'), content.contact_title);
+    const contactGrid = contactSection.querySelector('.contact-grid');
+    if (contactGrid && Array.isArray(content.contact_cards)) {
+        contactGrid.replaceChildren(...content.contact_cards.map(item => {
+            const card = makeElement('div', 'contact-card');
+            card.append(makeElement('i', item.icon), makeElement('h3', '', item.title));
+
+            const detail = makeElement('p');
+            const safeLink = getSafeContactLink(item.href);
+            if (safeLink) {
+                const link = makeElement('a', '', item.detail);
+                link.href = safeLink;
+                link.target = safeLink.startsWith('https://') ? '_blank' : '_self';
+                if (link.target === '_blank') link.rel = 'noopener noreferrer';
+                detail.append(link);
+            } else {
+                detail.textContent = item.detail || '';
+            }
+
+            card.append(detail, makeElement('p', 'contact-desc', item.description));
+            return card;
+        }));
+    }
+
+    const formSection = document.querySelector('.contact-form-section');
+    setText(formSection?.querySelector('h2'), content.form_title);
+    setText(formSection?.querySelector('button[type="submit"]'), content.submit_text);
+
+    const appointmentSection = document.querySelector('.appointment-section');
+    setText(appointmentSection?.querySelector('h2'), content.appointment_title);
+    setText(appointmentSection?.querySelector(':scope > p'), content.appointment_text);
+    const methods = appointmentSection?.querySelector('.appointment-methods');
+    if (methods && Array.isArray(content.appointment_methods)) {
+        methods.replaceChildren(...content.appointment_methods.map(item => {
+            const method = makeElement('div', 'method');
+            method.append(makeElement('i', item.icon), makeElement('h3', '', item.title), makeElement('p', '', item.description));
+            const safeLink = getSafeContactLink(item.href);
+            if (safeLink) {
+                const link = makeElement('a', 'method-btn', item.button_text);
+                link.href = safeLink;
+                link.target = safeLink.startsWith('https://') ? '_blank' : '_self';
+                if (link.target === '_blank') link.rel = 'noopener noreferrer';
+                method.append(link);
+            }
+            return method;
+        }));
+    }
+
+    const mapSection = document.querySelector('.map-section');
+    setText(mapSection?.querySelector('h2'), content.map_title);
+    setText(mapSection?.querySelector(':scope > p'), content.map_text);
+    const map = mapSection?.querySelector('.map-container iframe');
+    if (map && typeof content.map_embed_url === 'string') {
+        const parsedUrl = new URL(content.map_embed_url, window.location.origin);
+        if (parsedUrl.protocol === 'https:' && parsedUrl.hostname === 'www.google.com') {
+            map.src = parsedUrl.href;
+        } else {
+            throw new Error('Contact page map URL must be an HTTPS Google Maps embed URL.');
+        }
+    }
+}
+
+function getSafeContactLink(value) {
+    if (typeof value !== 'string' || !value.trim()) return '';
+    if (/^(https:\/\/|mailto:|tel:)/i.test(value)) return value;
+    throw new Error(`Unsupported contact link protocol: ${value}`);
+}
+
 function setupHamburger() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
 
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
+            const isOpen = navMenu.classList.toggle('active');
+            hamburger.setAttribute('aria-expanded', String(isOpen));
+            hamburger.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
         });
 
         const navLinks = document.querySelectorAll('.nav-link');
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
                 navMenu.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+                hamburger.setAttribute('aria-label', 'Open navigation menu');
             });
         });
     }
+}
+
+function setupAdminSideMenu() {
+    const toggle = document.querySelector('.admin-menu-toggle');
+    const menu = document.querySelector('.admin-side-menu');
+    const backdrop = document.querySelector('.admin-menu-backdrop');
+    const closeButton = document.querySelector('.admin-menu-close');
+
+    if (!toggle || !menu || !backdrop || !closeButton) return;
+
+    const closeMenu = () => {
+        menu.classList.remove('open');
+        menu.setAttribute('aria-hidden', 'true');
+        menu.inert = true;
+        backdrop.hidden = true;
+        toggle.setAttribute('aria-expanded', 'false');
+    };
+
+    const openMenu = () => {
+        menu.classList.add('open');
+        menu.setAttribute('aria-hidden', 'false');
+        menu.inert = false;
+        backdrop.hidden = false;
+        toggle.setAttribute('aria-expanded', 'true');
+        closeButton.focus();
+    };
+
+    toggle.addEventListener('click', () => {
+        if (toggle.getAttribute('aria-expanded') === 'true') {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    });
+
+    closeButton.addEventListener('click', closeMenu);
+    backdrop.addEventListener('click', closeMenu);
+    menu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && menu.classList.contains('open')) {
+            closeMenu();
+            toggle.focus();
+        }
+    });
 }
 
 // ================================================

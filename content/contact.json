@@ -1,0 +1,63 @@
+{
+  "contact_title": "Get In Touch",
+  "contact_cards": [
+    {
+      "title": "Call Us",
+      "icon": "fas fa-phone",
+      "detail": "+254 748 662082",
+      "description": "Available during business hours",
+      "href": "tel:+254748662082"
+    },
+    {
+      "title": "Email Us",
+      "icon": "fas fa-envelope",
+      "detail": "mwikimodern@gmail.com",
+      "description": "We'll respond within 24 hours",
+      "href": "mailto:mwikimodern@gmail.com"
+    },
+    {
+      "title": "WhatsApp",
+      "icon": "fab fa-whatsapp",
+      "detail": "+254 748 662082",
+      "description": "Quick chat support available",
+      "href": "https://wa.me/254748662082"
+    },
+    {
+      "title": "Address",
+      "icon": "fas fa-map-marker-alt",
+      "detail": "6 Red Soil St, Nairobi",
+      "description": "Located in the heart of Nairobi",
+      "href": ""
+    }
+  ],
+  "form_title": "Send Us a Message",
+  "submit_text": "Send Message",
+  "appointment_title": "Book An Appointment",
+  "appointment_text": "Ready to schedule your visit? We make it easy!",
+  "appointment_methods": [
+    {
+      "title": "Call Us",
+      "icon": "fas fa-phone",
+      "description": "Speak directly with our scheduling team",
+      "button_text": "Call Now",
+      "href": "tel:+254748662082"
+    },
+    {
+      "title": "WhatsApp",
+      "icon": "fab fa-whatsapp",
+      "description": "Quick and convenient appointment booking",
+      "button_text": "Chat on WhatsApp",
+      "href": "https://wa.me/254748662082?text=Hello%20MWIKI%20Modern%20Health%20Centre%2C%20I%20would%20like%20to%20book%20an%20appointment"
+    },
+    {
+      "title": "Email Us",
+      "icon": "fas fa-envelope",
+      "description": "Send your appointment request",
+      "button_text": "Send Email",
+      "href": "mailto:mwikimodern@gmail.com?subject=Appointment%20Request"
+    }
+  ],
+  "map_title": "Find Us",
+  "map_text": "Visit our modern healthcare facility",
+  "map_embed_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.014785959368!2d36.7823!3d-1.2876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f179b0f1b1b1b%3A0x6d6e6e6e6e6e6e6e!2s6%20Red%20Soil%20St%2C%20Nairobi!5e0!3m2!1sen!2sKe!4v1620000000000"
+}

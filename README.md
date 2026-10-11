@@ -72,8 +72,17 @@ SITE1/
 
 Open `/admin/` and sign in through DecapBridge. The editor provides sections for
 site contact details, the home page, services, departments, and the about page.
+The Contact Page entry also covers its contact cards, booking methods, and map.
 Existing content is preloaded in the editor. Save changes and publish them in
 Decap CMS for the public pages to update.
+
+Each page entry has a matching preview built with the public site's stylesheet
+and page components. The home, services, departments, about, and contact editors
+include visual content cards: edit fields inline, preview images, choose common
+icons, drag to reorder, duplicate, move, add, or remove cards. Previews show draft
+content as it changes. The slideshow retains Decap's native image uploader and
+media library. The editor manages the site's content sections; it does not move
+arbitrary page layout elements.
 
 The editable data lives in `content/` as JSON files. The public site reads these
 files on each page load, so changes to that content are reflected across the

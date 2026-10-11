@@ -1,0 +1,151 @@
+html,
+body {
+  min-width: 0;
+}
+
+.editable-site-preview {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.editable-preview-notice {
+  padding: 0.45rem 1rem;
+  background: #e6f2ff;
+  color: #174c6b;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.preview-nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.35rem;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.preview-nav-links span {
+  padding: 0.4rem 0.55rem;
+  border-radius: 5px;
+}
+
+.preview-nav-links span:first-child {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.preview-home-hero {
+  min-height: 420px;
+}
+
+.preview-home-hero .hero-video-content {
+  padding: 1rem;
+}
+
+.preview-home-hero .hero-media-element {
+  object-fit: cover;
+}
+
+.preview-home-hero .schedule-cta-btn {
+  display: inline-block;
+  cursor: default;
+}
+
+.slide.fade {
+  display: block;
+}
+
+.slide img {
+  max-height: 420px;
+  object-fit: cover;
+}
+
+.slide-text {
+  position: absolute;
+  inset: auto 0 1rem;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.75);
+}
+
+.faq-item.active .faq-answer {
+  display: block;
+}
+
+.elementor-about,
+.elementor-mvv,
+.elementor-features,
+.elementor-team {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(230, 242, 255, 0.96));
+}
+
+.elementor-heading-secondary {
+  color: #005a9e;
+}
+
+.elementor-card,
+.elementor-feature,
+.elementor-team-member {
+  border: 1px solid #cce6ff;
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(0, 120, 212, 0.08);
+}
+
+.preview-about-intro {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+}
+
+.preview-about-image {
+  display: block;
+  max-width: 420px;
+  aspect-ratio: 4 / 3;
+  border-radius: 14px;
+  object-fit: cover;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.preview-site-info {
+  padding: 0 clamp(1rem, 4vw, 2rem);
+}
+
+.preview-site-footer {
+  margin-top: 2rem;
+}
+
+.preview-site-footer .footer-content {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.preview-values {
+  white-space: pre-line;
+}
+
+.preview-link-text {
+  color: #008080;
+  font-weight: 600;
+}
+
+.preview-map-container iframe {
+  display: block;
+  width: 100%;
+  min-height: 300px;
+  border: 0;
+}
+
+.preview-whatsapp {
+  cursor: default;
+}
+
+@media (max-width: 760px) {
+  .preview-nav-links {
+    display: none;
+  }
+
+  .slide img {
+    max-height: 300px;
+  }
+}

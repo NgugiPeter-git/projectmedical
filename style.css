@@ -65,10 +65,11 @@ a {
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 clamp(1rem, 3vw, 2rem);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1.25rem;
 }
 
 .nav-logo {
@@ -116,22 +117,33 @@ a {
 
 .logo-text {
     color: white;
-    font-size: 1.5rem;
+    font-size: clamp(1rem, 1.6vw, 1.35rem);
+    line-height: 1.2;
     font-weight: bold;
 }
 
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: clamp(0.15rem, 0.6vw, 0.65rem);
     align-items: center;
+    flex-shrink: 0;
+}
+
+.nav-menu .admin-login-button {
+    display: none;
 }
 
 .nav-link {
     color: white;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    padding: 0.5rem 1rem;
+    display: inline-flex;
+    align-items: center;
+    min-height: 42px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    padding: 0.5rem 0.7rem;
     border-radius: 5px;
 }
 
@@ -171,10 +183,106 @@ a {
     color: white;
 }
 
+.admin-menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.65rem 0.85rem;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.16);
+    color: white;
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.admin-menu-toggle:hover,
+.admin-menu-toggle:focus-visible {
+    background: rgba(0, 0, 0, 0.32);
+}
+
+.admin-menu-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 1090;
+    border: 0;
+    background: rgba(13, 27, 42, 0.48);
+    cursor: pointer;
+}
+
+.admin-side-menu {
+    position: fixed;
+    z-index: 1091;
+    top: 0;
+    right: 0;
+    width: min(340px, 88vw);
+    height: 100vh;
+    height: 100dvh;
+    padding: 1.5rem;
+    background: #fff;
+    color: #202b36;
+    box-shadow: -12px 0 32px rgba(0, 0, 0, 0.18);
+    transform: translateX(105%);
+    transition: transform 0.25s ease;
+    visibility: hidden;
+}
+
+.admin-side-menu.open {
+    transform: translateX(0);
+    visibility: visible;
+}
+
+.admin-side-menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid #e1e7ed;
+}
+
+.admin-side-menu-header h2 {
+    font-size: 1.2rem;
+}
+
+.admin-menu-close {
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: 50%;
+    background: #eef2f6;
+    color: #202b36;
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+.admin-side-menu-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    padding: 0.9rem 1rem;
+    border-radius: 8px;
+    background: #292929;
+    color: #fff;
+    font-weight: 600;
+}
+
+.admin-side-menu-link:hover,
+.admin-side-menu-link:focus-visible {
+    background: #111;
+}
+
 .hamburger {
     display: none;
     flex-direction: column;
     cursor: pointer;
+    border: 0;
+    background: transparent;
 }
 
 .bar {
@@ -702,7 +810,7 @@ main {
    ELEMENTOR-STYLE SECTIONS (About Page)
    ================================ */
 .elementor-section {
-    padding: 4rem 0;
+    padding: clamp(2.5rem, 5vw, 4rem) 0;
     position: relative;
 }
 
@@ -725,20 +833,21 @@ main {
 }
 
 .elementor-container {
-    max-width: 1200px;
+    width: min(100%, 1200px);
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 clamp(1rem, 4vw, 2rem);
 }
 
 .elementor-row {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: clamp(1rem, 3vw, 2rem);
     align-items: center;
 }
 
 .elementor-column {
-    padding: 2rem;
+    min-width: 0;
+    padding: clamp(0.75rem, 2.5vw, 2rem);
 }
 
 .elementor-image {
@@ -749,7 +858,8 @@ main {
 
 .about-promo-frame {
     width: min(100%, 420px);
-    height: 748px;
+    aspect-ratio: 9 / 16;
+    height: auto;
     display: block;
     margin: 0 auto;
     border: 0;
@@ -787,6 +897,8 @@ main {
     text-align: center;
     border: 2px solid #008080;
     transition: all 0.3s ease;
+    min-width: 0;
+    overflow-wrap: anywhere;
 }
 
 .elementor-card:hover {
@@ -831,6 +943,8 @@ main {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     border-top: 5px solid #008080;
     transition: all 0.3s ease;
+    min-width: 0;
+    overflow-wrap: anywhere;
 }
 
 .elementor-feature:hover {
@@ -879,6 +993,8 @@ main {
     text-align: center;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+    min-width: 0;
+    overflow-wrap: anywhere;
 }
 
 .elementor-team-member:hover {
@@ -909,16 +1025,13 @@ main {
         padding: 3rem 0;
     }
 
-    .elementor-container {
-        padding: 0 1rem;
-    }
-
     .elementor-row {
-        gap: 1.25rem;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1rem;
     }
 
     .elementor-column {
-        padding: 0.75rem 0;
+        padding: 0.5rem 0;
     }
 
     .elementor-column h2 {
@@ -931,10 +1044,6 @@ main {
         margin-top: 0.5rem;
     }
 
-    .about-promo-frame {
-        width: min(100%, 340px);
-        height: 600px;
-    }
 }
 
 @media (max-width: 480px) {
@@ -960,8 +1069,7 @@ main {
     }
 
     .about-promo-frame {
-        width: min(100%, 280px);
-        height: 500px;
+        width: min(100%, 320px);
         border-radius: 12px;
     }
 }
@@ -1429,13 +1537,9 @@ main {
    RESPONSIVE DESIGN
    ================================ */
 @media (max-width: 768px) {
-    .nav-menu {
-        gap: 1rem;
-    }
-
     .nav-link {
-        padding: 0.3rem 0.7rem;
-        font-size: 0.9rem;
+        padding: 0.55rem 1rem;
+        font-size: 1rem;
     }
 
     .glass-heading {
@@ -1484,34 +1588,70 @@ main {
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1024px) {
+    .admin-menu-toggle {
+        display: none;
+    }
+
+    .nav-menu .admin-login-button {
+        display: inline-flex;
+    }
+
     .hamburger {
         display: flex;
+        min-width: 40px;
+        min-height: 40px;
+        justify-content: center;
+        align-items: center;
     }
 
     .nav-menu {
         position: fixed;
-        left: -100%;
-        top: 70px;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: min(340px, 88vw);
+        height: 100vh;
+        height: 100dvh;
         flex-direction: column;
-        background-color: #008080;
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        gap: 0;
-        padding: 2rem 0;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 0.4rem;
+        overflow-y: auto;
+        padding: 5rem 1.25rem 1.5rem;
+        background: #075d78;
+        box-shadow: 10px 0 30px rgba(0, 0, 0, 0.18);
+        transform: translateX(-105%);
+        transition: transform 0.25s ease;
+        z-index: 1091;
     }
 
     .nav-menu.active {
-        left: 0;
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 1.5rem; /* Forces a healthy, consistent breathing room between links */
+        transform: translateX(0);
     }
 
     .nav-item {
-        margin: 0.5rem 0;
+        width: 100%;
+        margin: 0;
+    }
+
+    .nav-menu .nav-link {
+        display: flex;
+        width: 100%;
+        min-height: 46px;
+        padding: 0.7rem 0.9rem;
+        border-radius: 7px;
+    }
+
+    .nav-menu .cta-button {
+        justify-content: center;
+        margin-top: 0.5rem;
+    }
+
+    .nav-menu .admin-login-button {
+        justify-content: center;
+        margin-top: 0.35rem;
     }
 
     .glass-heading {
