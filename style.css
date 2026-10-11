@@ -183,6 +183,10 @@ a {
     color: white;
 }
 
+.nav-menu .nav-link.admin-login-button {
+    display: none;
+}
+
 .admin-menu-toggle {
     display: inline-flex;
     align-items: center;
